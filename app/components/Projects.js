@@ -8,6 +8,13 @@ const projects = [
       'Developed a modern, responsive resume submission webpage using Next.js, Tailwind CSS, Nodemailer, and Vercel for deployment.',
     tags: ['Next JS', 'Tailwind css', 'Nodemailer', 'Vercel'],
     image: '/assets/resume.gif',
+  }, {
+    title: 'AI Interview Portal',
+    date: 'March 2025',
+    description:
+      ' An AI-powered platform that helps users prepare for technical interviews through resume-based question generation, real-time scoring, and GPT-driven mock interviews.',
+    tags: [" Next.js",  'Node.js', 'Hasura', 'PostgreSQL'],
+    image: '/assets/foss united.gif',
   },
   {
     title: 'CII-MCM',
@@ -24,15 +31,8 @@ const projects = [
       'Built an online shopping platform "Fashion Hub" using Bootstrap, enabling users to view and buy fashion products.',
     tags: [ "JavaScript", "Bootstrap",'Tailwind CSS','Netlify' , ],
     image: '/assets/foss.gif',
-  },
-   {
-    title: 'Admin Panel',
-    date: 'Jan 2024 – March 2024',
-    description:
-      'Built a dynamic Admin Panel allowing administrators to manage student records and add assessments.',
-    tags: [ "JavaScript",'Next.js','Vercel'],
-    image: '/assets/admin.gif',
-  },
+  }, 
+   
   {
     title: 'Entrance Exam',
     date: 'March 2024',
@@ -49,6 +49,7 @@ const projects = [
     tags: ["JavaScript", "Bootstrap",'Netlify'],
     image: '/assets/foss united.gif',
   },
+
 ];
 
 export default function ProjectsSection() {

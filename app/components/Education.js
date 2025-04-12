@@ -20,7 +20,6 @@ export default function Education() {
           title: "B.Sc in Chemistry",
           company: "P.G College Dharamshala",
           duration: "( 2015 – 2018 )",
-          description: "Delivered hands-on training in modern web development, programming, and database management. Designed and implemented interactive learning modules improving engagement and comprehension. Mentored students and junior developers, fostering a strong learning environment.",
           logo: "dharamshala.png", // Replace with actual path
         },
       ];
