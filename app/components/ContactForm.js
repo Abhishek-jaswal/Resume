@@ -35,7 +35,7 @@ export default function ContactForm() {
 
   return (
     <div className="flex flex-col mt-10 items-center justify-center p-6 min-h-screen bg-gradient-to-b from-gray-900 to-black">
-     <div className="text-center " id='skills'>
+     <div className="text-center " id='contact'>
   <h2 className="text-4xl font-bold">Contact</h2>
   <p className="text-gray-400 mt-2">
   Feel free to reach out to me for any questions or opportunities!

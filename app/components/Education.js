@@ -30,7 +30,7 @@ export default function Education() {
     <p className="text-center mb-10 text-gray-300 max-w-lg">
     My education has been a journey of self-discovery and growth. My educational details are as follows.
     </p>
-    <div className="space-y-8 w-full max-w-2xl">
+    <div className="space-y-8 w-full max-w-2xl "id='education'>
       {education.map((edu, index) => (
         <div
           key={index}

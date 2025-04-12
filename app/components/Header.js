@@ -10,6 +10,7 @@ export default function Header() {
       <a href="#experience" className="hover:text-purple-400">Experience</a>
       <a href="#projects" className="hover:text-purple-400">Projects</a>
       <a href="#education" className="hover:text-purple-400">Education</a>
+      <a href="#contact" className="hover:text-purple-400">Contact</a>
     </nav>
     <a href="https://github.com/Abhishek-jaswal" className="px-2 py-2 border border-purple-500 rounded-lg hover:bg-purple-500 transition z-0">
       Github Profile
