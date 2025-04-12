@@ -2,7 +2,8 @@ import React from 'react'
 
 export default function Header() {
   return (
-    <header className="flex justify-between items-center p-4 max-w-5xl mx-auto sticky top-0 bg-gray-900 z-10">
+    <div className='sticky top-0 bg-gray-900 z-10'>
+    <header className="flex justify-between items-center p-4 max-w-5xl mx-auto 0 ">
     <h1 className="text-2xl font-bold">Portfolio</h1>
     <nav className="space-x-6 space-x-6 hidden md:flex">
       <a href="#about" className="hover:text-purple-400">About</a>
@@ -16,5 +17,6 @@ export default function Header() {
       Github Profile
     </a>
   </header>
+  </div>
   )
 }

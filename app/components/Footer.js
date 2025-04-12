@@ -29,7 +29,7 @@ export default function Footer() {
 
       {/* Copyright */}
       <p className="text-xs text-gray-400 mt-4">
-        © 2024 Abhishek Jaswal. All rights reserved.
+        © 2025 Abhishek Jaswal. All rights reserved.
       </p>
     </footer>
   )

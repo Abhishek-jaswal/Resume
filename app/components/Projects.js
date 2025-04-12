@@ -5,7 +5,7 @@ const projects = [
     title: 'Portfolio',
     date: 'March 2024',
     description:
-      'Developed a MERN Stack application that allows users to search, write reviews of their favorite movies.',
+      'Developed a modern, responsive resume submission webpage using Next.js, Tailwind CSS, Nodemailer, and Vercel for deployment.',
     tags: ['Next JS', 'Tailwind css', 'Nodemailer', 'Vercel'],
     image: '/assets/resume.gif',
   },
@@ -13,7 +13,7 @@ const projects = [
     title: 'CII-MCM',
     date: 'August 2024',
     description:
-      'A PHP webapp application for managing all types of blood reports, both user- and admin-side.',
+      'Developed a student registration form during the CII MCM course launch using modern web technologies (Next.js, Tailwind CSS, Nodemailer) to collect user data and send notifications via email.',
     tags: ["JavaScript",'Tailwind CSS', 'ReactJS','Netlify'],
     image: '/assets/cii.gif',
   },
@@ -21,7 +21,7 @@ const projects = [
     title: 'Fashion Hub',
     date: 'April 2024',
     description:
-      'A Movie app made with ReactJS and RestAPI. Users can search and view movies globally.',
+      'Built an online shopping platform "Fashion Hub" using Bootstrap, enabling users to view and buy fashion products.',
     tags: [ "JavaScript", "Bootstrap",'Tailwind CSS','Netlify' , ],
     image: '/assets/foss.gif',
   },
@@ -29,7 +29,7 @@ const projects = [
     title: 'Admin Panel',
     date: 'Jan 2024 – March 2024',
     description:
-      'Developed a MERN Stack application that allows users to search, write reviews of their favorite movies.',
+      'Built a dynamic Admin Panel allowing administrators to manage student records and add assessments.',
     tags: [ "JavaScript",'Next.js','Vercel'],
     image: '/assets/admin.gif',
   },
@@ -37,7 +37,7 @@ const projects = [
     title: 'Entrance Exam',
     date: 'March 2024',
     description:
-      'A PHP webapp application for managing all types of blood reports, both user- and admin-side.',
+      'Created a full-featured online entrance exam platform enabling student registration, secure login, and exam start flow.',
     tags: ["JavaScript",'Tailwind CSS', 'Node.js','Netlify'],
     image: '/assets/entrance exam.gif',
   },
@@ -45,7 +45,7 @@ const projects = [
     title: 'Foss United',
     date: 'Jan 2024 – March 2024',
     description:
-      'A Movie app made with ReactJS and RestAPI. Users can search and view movies globally.',
+      'Recreated the FOSS United website UI using Bootstrap, ensuring mobile-first and responsive design.',
     tags: ["JavaScript", "Bootstrap",'Netlify'],
     image: '/assets/foss united.gif',
   },
@@ -79,7 +79,7 @@ export default function ProjectsSection() {
                 {project.tags.map((tag, i) => (
                   <span
                     key={i}
-                    className="text-purple-600 text-xs   rounded-full p-1 border border-purple-500"
+                    className="text-purple-300 text-xs   rounded-full p-1 border border-purple-300"
                   >
                     {tag}
                   </span>
