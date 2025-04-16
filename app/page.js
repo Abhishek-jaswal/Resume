@@ -6,6 +6,7 @@ import Header from './components/Header';
 import Main from './components/Main';
 import  Projects  from './components/Projects';
 import Skills from './components/Skills';
+import LocalTime.js from './components/LocalTime.js';
 
 
 export default function Home() {
@@ -31,7 +32,7 @@ export default function Home() {
     <div className="bg-gray-900 text-white min-h-screen">
       {/* Header Section */}
       <Header />
-
+      <LocalTime/>
       {/* Main Section */}
       <Main />
       <Skills />
