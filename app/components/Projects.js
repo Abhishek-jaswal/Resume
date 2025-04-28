@@ -14,7 +14,7 @@ const projects = [
     description:
       ' An AI-powered platform that helps users prepare for technical interviews through resume-based question generation, real-time scoring, and GPT-driven mock interviews.',
     tags: [" Next.js",  'Node.js', 'Hasura', 'PostgreSQL'],
-    image: '/assets/foss united.gif',
+    image: '/assets/ai-interview.gif',
   },
   {
     title: 'CII-MCM',
