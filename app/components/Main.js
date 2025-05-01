@@ -13,7 +13,7 @@ export default function Main() {
           I am a passionate Full-Stack Developer specializing in modern web technologies like
           JavaScript, ReactJS, Express.js, Django, and Rust. Passionate about building robust backend systems, real-time applications, and seamless user experiences. Seeking opportunities to drive innovation and efficiency in a high-impact development role.
         </p>
-            <a href="/public/assests/Abhishek Jaswal.pdf>
+            <a href="/public/assets/Abhishek Jaswal.pdf">
         <button className="mt-6 px-6 py-3 bg-purple-600 text-white font-semibold rounded-lg hover:bg-purple-700 transition">
           Check Resume
         </button></a>
