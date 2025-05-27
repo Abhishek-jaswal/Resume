@@ -34,12 +34,12 @@ const projects = [
   }, 
    
   {
-    title: 'Entrance Exam',
-    date: 'March 2024',
+    title: 'Chat Box',
+    date: 'May 2025',
     description:
-      'Created a full-featured online entrance exam platform enabling student registration, secure login, and exam start flow.',
-    tags: ["JavaScript",'Tailwind CSS', 'Node.js','Netlify'],
-    image: '/assets/entrance exam.gif',
+      'A fast and simple chat app with real-time messaging, group and private chat options, and a clean design. Built with Next.js and Socket.IO.',
+    tags: ['Next.js , Socket.IO'],
+    image: '/assets/chatt.gif',
   },
   {
     title: 'Foss United',
