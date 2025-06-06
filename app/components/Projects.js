@@ -43,7 +43,7 @@ const projects = [
     date: 'May 2025',
     description:
       'A fast and simple chat app with real-time messaging, group and private chat options, and a clean design. Built with Next.js and Socket.IO.',
-    tags: ['Next.js , Socket.IO'],
+    tags: ['Next.js', 'Socket.IO'],
     image: '/assets/chatt.gif',
     link: 'https://chat-app-black-nine.vercel.app/',
   },
@@ -67,7 +67,7 @@ export default function ProjectsSection() {
           I have worked on a wide range of projects.
         </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 ">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {projects.map((project, index) => (
             <Link
               key={index}
@@ -76,28 +76,35 @@ export default function ProjectsSection() {
               rel="noopener noreferrer"
               className="block"
             >
-              <div className="bg-gray-900 rounded-2xl shadow-lg p-4 hover:scale-105 transition-transform duration-300 shadow-lg border border-purple-500">
-                <div className="w-auto h-40 relative rounded-xl overflow-hidden mb-4">
+              <div className="bg-gray-800 rounded-2xl shadow-md p-4 border border-purple-500 hover:scale-105 transition-transform duration-300 flex flex-col h-full">
+                {/* Image Section */}
+                <div className="relative w-full h-40 rounded-lg overflow-hidden mb-4">
                   <Image
                     src={project.image}
                     alt={project.title}
-                    layout="fill"
-                    objectFit="cover"
+                    fill
+                    className="object-cover"
                   />
                 </div>
+
+                {/* Tags */}
                 <div className="flex flex-wrap gap-2 mb-2">
                   {project.tags.map((tag, i) => (
                     <span
                       key={i}
-                      className="text-purple-300 text-xs rounded-full p-1 border border-purple-300"
+                      className="text-purple-300 text-xs rounded-full px-2 py-1 border border-purple-300"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
+
+                {/* Title, Date, Description */}
                 <h3 className="text-xl font-semibold mb-1">{project.title}</h3>
-                <p className="text-sm text-gray-400 mb-1">{project.date}</p>
-                <p className="text-sm text-gray-300">{project.description}</p>
+                <p className="text-sm text-gray-400 mb-2">{project.date}</p>
+                <p className="text-sm text-gray-300 flex-grow">
+                  {project.description}
+                </p>
               </div>
             </Link>
           ))}
