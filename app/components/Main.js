@@ -13,7 +13,7 @@ export default function Main() {
           <div className="text-4xl font-extrabold text-purple-500 mt-4">
             <Typewriter
               options={{
-                strings: ['Abhishek Jaswal','Welcome to my portfolio!', 'Full Stack Developer','React.js | Node.js | Next.js'],
+                strings: ['Abhishek Jaswal','Welcome to my portfolio!', 'Full Stack Developer', 'Open Source Contributor'],
                 autoStart: true,
                 loop: true,
                 delay: 75,
