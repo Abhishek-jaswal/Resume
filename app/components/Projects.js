@@ -9,7 +9,7 @@ const projects = [
       'Developed a modern, responsive resume submission webpage using Next.js, Tailwind CSS, Nodemailer, and Vercel for deployment.',
     tags: ['Next JS', 'Tailwind css', 'Nodemailer', 'Vercel'],
     image: '/assets/resume.gif',
-    link: 'https://resume-chi-ochre.vercel.app/',
+    link: 'https://abhishek-jaswal.vercel.app/',
   },
   {
     title: 'AI Interview Portal',
@@ -27,7 +27,7 @@ const projects = [
       'Developed a student registration form during the CII MCM course launch using modern web technologies (Next.js, Tailwind CSS, Nodemailer) to collect user data and send notifications via email.',
     tags: ['JavaScript', 'Tailwind CSS', 'ReactJS', 'Netlify'],
     image: '/assets/cii.gif',
-    link: 'https://your-cii-mcm-link.com',
+    link: 'https://ciimcmtrust.netlify.app/',
   },
   {
     title: 'Fashion Hub',
