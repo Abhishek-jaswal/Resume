@@ -26,7 +26,7 @@ export default function Main() {
             JavaScript, ReactJS, Express.js, Django, and Rust. Passionate about building robust backend systems, real-time applications, and seamless user experiences.
           </p>
 
-          <a href="https://drive.google.com/file/d/1QyOWAWTXwQFsc_2K3bJMQyjBQ0C1HUpE/view?usp=sharing">
+          <a href="https://drive.google.com/file/d/1xWKihiyRgk85m0ngt6Kawke9USFLKjxn/view?usp=sharing">
             <button className="mt-6 px-6 py-3 bg-purple-600 text-white font-semibold rounded-lg hover:bg-purple-700 transition">
               Check Resume
             </button>
