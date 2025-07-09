@@ -45,7 +45,7 @@ const projects = [
       'A fast and simple chat app with real-time messaging, group and private chat options, and a clean design. Built with Next.js and Socket.IO.',
     tags: ['Next.js', 'Socket.IO'],
     image: '/assets/chatt.gif',
-    link: 'https://chat-app-black-nine.vercel.app/',
+    link: 'https://abhishek-chat.vercel.app/',
   },
   {
     title: 'Foss United',
