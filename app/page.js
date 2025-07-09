@@ -1,3 +1,4 @@
+"use client";
 import ContactForm from './components/ContactForm';
 import Education from './components/Education';
 import Experience from './components/Experience';
@@ -7,10 +8,13 @@ import Main from './components/Main';
 import  Projects  from './components/Projects';
 import Skills from './components/Skills';
 import LocalTime from './components/LocalTime';
+import { motion } from "framer-motion";
+
 
 
 
 export default function Home() {
+  
   const experiences = [
     {
       title: "IT Trainer",
@@ -29,20 +33,40 @@ export default function Home() {
       logo: "MIS.png", // Replace with actual path
     },
   ];
+
+
+
   return (
     <div className="bg-gray-900 text-white min-h-screen">
-      {/* Header Section */}
       <Header />
-      <LocalTime/>
-      {/* Main Section */}
-      <Main />
-      <Skills />
-      <Projects />
+      <LocalTime />
 
-      <Experience experiences={experiences} />
-      <Education />
-      <ContactForm />
-      <Footer />
+      <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 0.6 }}>
+        <Main />
+      </motion.div>
+
+      <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
+        <Skills />
+      </motion.div>
+      <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.5 }}>
+        <Projects />
+      </motion.div>
+
+      <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
+        <Experience experiences={experiences} />
+      </motion.div>
+
+      <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.5 }}>
+        <Education />
+      </motion.div>
+
+      <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
+        <ContactForm />
+      </motion.div>
+
+        <Footer />
+     
     </div>
   );
 }
+
