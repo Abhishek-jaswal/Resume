@@ -1,12 +1,17 @@
 import React from 'react'
+import Image from 'next/image';
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-white py-6 text-center">
-      <h2 className="text-lg font-bold text-purple-400">Abhishek Jaswal</h2>
+    <footer className="bg-gray-950 text-white py-6 text-center">
+      <Image
+        src="/Abhignite.png"
+        alt="Logo"
+        width={100}
+        height={40} className='mx-auto'/>
 
       {/* Navigation Links */}
-      <div className="flex justify-center gap-6 mt-3 text-sm">
+      <div className="flex justify-center gap-6  text-sm">
         {["About", "Skills", "Experience", "Projects", "Education"].map((item) => (
           <a key={item} href={`#${item.toLowerCase()}`} className="hover:text-purple-400 transition">
             {item}

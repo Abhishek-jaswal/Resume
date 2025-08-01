@@ -24,7 +24,7 @@ export default function Education() {
         },
       ];
   return (
-    <section className=" text-white flex flex-col items-center mt-10 z-0" id='experience'>
+    <section className=" text-white flex flex-col items-center mt-10 z-0 px-4" id='experience'>
     <h2 className="text-4xl font-bold text-center mb-6">Education</h2>
     <p className="text-center mb-10 text-gray-300 max-w-lg">
     My education has been a journey of self-discovery and growth. My educational details are as follows.

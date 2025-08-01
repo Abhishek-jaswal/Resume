@@ -7,7 +7,6 @@ import Header from './components/Header';
 import Main from './components/Main';
 import  Projects  from './components/Projects';
 import Skills from './components/Skills';
-import LocalTime from './components/LocalTime';
 import { motion } from "framer-motion";
 
 
@@ -39,7 +38,7 @@ export default function Home() {
   return (
     <div className="bg-gray-900 text-white min-h-screen">
       <Header />
-      <LocalTime />
+     
 
       <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 0.6 }}>
         <Main />
@@ -48,17 +47,14 @@ export default function Home() {
       <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
         <Skills />
       </motion.div>
-      <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.5 }}>
         <Projects />
-      </motion.div>
 
       <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
         <Experience experiences={experiences} />
       </motion.div>
 
-      <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.5 }}>
         <Education />
-      </motion.div>
+  
 
       <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
         <ContactForm />

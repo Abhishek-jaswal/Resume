@@ -3,14 +3,14 @@ import React from 'react'
 export default function Skills() {
   return (
     <>
-    <div className="text-center mt-14" id='skills'>
+    <div className="text-center mt-14 px-4" id='skills'>
     <h2 className="text-4xl font-bold">Skills</h2>
     <p className="text-gray-400 mt-2">
       Here are some of my skills on which I have been working for the past 1 year.
     </p>
   </div>
   
-  <div className="mt-10 max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+  <div className="mt-10 max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 px-4">
     {/* Frontend Skills */}
     <div className="bg-gray-800 p-6 rounded-xl shadow-lg border border-purple-500">
       <h3 className="text-2xl font-semibold text-center">Frontend</h3>
