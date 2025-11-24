@@ -28,7 +28,7 @@ export default function Main() {
           I’m a results-driven Full-Stack Developer with expertise in modern technologies including JavaScript, ReactJS, Express.js, Django, and Rust. I specialize in building scalable backend systems, real-time web applications, and seamless user interfaces that deliver exceptional digital experiences.
           </p>
 
-          <a href="https://docs.google.com/document/d/1truFyYcbdTAv1owPXkcO8J4uffS5LF8svePH7CQxl7A/edit?usp=sharing">
+          <a href="https://drive.google.com/file/d/12BBJn3oAWxm5aoLntv5D1XE82xHD8uKz/view?usp=sharing">
             <button className="mt-6 px-6 py-3 bg-purple-600 text-white font-semibold rounded-lg hover:bg-purple-700 transition">
               Check Resume
             </button>
