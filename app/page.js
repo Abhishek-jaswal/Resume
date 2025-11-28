@@ -43,7 +43,7 @@ export default function Home() {
   ];
 
   return (
-    <div className=" text-white min-h-screen">
+    <div className="bg-[#0d0f16] text-white min-h-screen">
         {/* ✨ 3D Spline Scene */}
       <SplineScene />
       <Header />

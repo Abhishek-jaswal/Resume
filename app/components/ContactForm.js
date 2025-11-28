@@ -1,4 +1,4 @@
-"use client"; // Since it's a client component
+"use client";
 import { useState } from "react";
 
 export default function ContactForm() {
@@ -34,61 +34,131 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="flex flex-col mt-10 items-center justify-center p-6 min-h-screen bg-gradient-to-b from-gray-900 to-black">
-     <div className="text-center " id='contact'>
-  <h2 className="text-4xl font-bold">Contact</h2>
-  <p className="text-gray-400 mt-2">
-  Feel free to reach out to me for any questions or opportunities!
-  </p>
-</div>
-    <div className="bg-gray-900 p-6 rounded-xl shadow-xl mt-10 w-full max-w-md ">
-      <h2 className="text-white text-2xl font-bold  mb-4">
-        Email Me 🚀
-      </h2>
-        <form onSubmit={handleSubmit} className="mt-4">
-          <input
-            type="email"
-            name="email"
-            placeholder="Your Email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-            className="w-full p-2 mb-3 rounded-lg bg-gray-900 border border-purple-500 text-white"
-          />
-          <input
-            type="text"
-            name="name"
-            placeholder="Your Name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-            className="w-full p-2 mb-3 rounded-lg  bg-gray-900 border border-purple-500 text-white"
-          />
-          <input
-            type="text"
-            name="subject"
-            placeholder="Subject"
-            value={formData.subject}
-            onChange={handleChange}
-            required
-            className="w-full p-2 mb-3 rounded-lg  bg-gray-900 border border-purple-500 text-white"
-          />
-          <textarea
-            name="message"
-            placeholder="Message"
-            value={formData.message}
-            onChange={handleChange}
-            required
-            className="w-full p-2 mb-3 rounded-lg  bg-gray-900 border border-purple-500 text-white h-24"
-          />
-          <button
-            type="submit"
-            className="w-full bg-purple-600 text-white p-2 rounded-lg  hover:bg-purple-700 transition"
-          >
-            Send
-          </button>
-        </form>
-        {status && <p className="text-center mt-2">{status}</p>}
+    <div
+      id="contact"
+      className="min-h-screen w-full px-6 py-20  flex flex-col items-center"
+    >
+      {/* Title */}
+      <div className="text-center mb-16">
+        <h2 className="text-5xl font-extrabold text-white">
+          Let's Work <span className="text-green-400">Together</span>
+        </h2>
+        <p className="text-gray-400 mt-3 text-lg">
+          Have a project in mind? Let's discuss how we can bring your ideas to life
+        </p>
+      </div>
+
+      {/* Main container */}
+      <div className="flex flex-col lg:flex-row gap-10 w-full max-w-6xl">
+
+        {/* Left Section - Contact Info */}
+        <div className="flex-1 text-white">
+          <h3 className="text-3xl font-semibold mb-4">Get in touch</h3>
+          <p className="text-gray-400 mb-8">
+            I'm always interested in hearing about new projects and
+            opportunities. Whether you have a question or just want to say hi,
+            feel free to reach out!
+          </p>
+
+          {/* Email */}
+          <div className="flex items-center gap-4 bg-[#111321] p-4 rounded-xl mb-4 border border-gray-800">
+            <div className="w-12 h-12 bg-green-400 rounded-lg flex items-center justify-center text-black text-xl font-bold">
+              ✉️
+            </div>
+            <div>
+              <p className="text-gray-400 text-sm">Email</p>
+              <p className="font-semibold">your.email@example.com</p>
+            </div>
+          </div>
+
+          {/* Phone */}
+          <div className="flex items-center gap-4 bg-[#111321] p-4 rounded-xl mb-4 border border-gray-800">
+            <div className="w-12 h-12 bg-green-400 rounded-lg flex items-center justify-center text-black text-xl font-bold">
+              📞
+            </div>
+            <div>
+              <p className="text-gray-400 text-sm">Phone</p>
+              <p className="font-semibold">+1 (123) 456-7890</p>
+            </div>
+          </div>
+
+          {/* Location */}
+          <div className="flex items-center gap-4 bg-[#111321] p-4 rounded-xl mb-4 border border-gray-800">
+            <div className="w-12 h-12 bg-green-400 rounded-lg flex items-center justify-center text-black text-xl font-bold">
+              📍
+            </div>
+            <div>
+              <p className="text-gray-400 text-sm">Location</p>
+              <p className="font-semibold">Your City, Country</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Right Section - Form */}
+        <div className="flex-1 bg-[#111321] p-8 rounded-2xl border border-gray-800 shadow-lg">
+          <form onSubmit={handleSubmit}>
+
+            {/* Row 1 */}
+            <div className="flex flex-col md:flex-row gap-4 mb-4">
+              <div className="w-full">
+                <label className="text-gray-300 text-sm">Full Name</label>
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  className="w-full mt-1 p-3 rounded-lg bg-[#0b0d14] border border-gray-700 text-white"
+                />
+              </div>
+
+              <div className="w-full">
+                <label className="text-gray-300 text-sm">Email Address</label>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="w-full mt-1 p-3 rounded-lg bg-[#0b0d14] border border-gray-700 text-white"
+                />
+              </div>
+            </div>
+
+            {/* Subject */}
+            <div className="mb-4">
+              <label className="text-gray-300 text-sm">Subject</label>
+              <input
+                type="text"
+                name="subject"
+                value={formData.subject}
+                onChange={handleChange}
+                className="w-full mt-1 p-3 rounded-lg bg-[#0b0d14] border border-gray-700 text-white"
+              />
+            </div>
+
+            {/* Message */}
+            <div className="mb-6">
+              <label className="text-gray-300 text-sm">Message</label>
+              <textarea
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                className="w-full mt-1 p-3 h-32 rounded-lg bg-[#0b0d14] border border-gray-700 text-white"
+              ></textarea>
+            </div>
+
+            {/* Button */}
+            <button
+              type="submit"
+              className="w-full bg-green-500 hover:bg-green-600 text-black font-semibold p-3 rounded-lg transition flex items-center justify-center gap-2"
+            >
+              ✈️ Send Message
+            </button>
+          </form>
+
+          {status && (
+            <p className="text-center text-green-400 mt-3">{status}</p>
+          )}
+        </div>
       </div>
     </div>
   );
