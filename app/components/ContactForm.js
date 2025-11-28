@@ -41,10 +41,10 @@ export default function ContactForm() {
       {/* Title */}
       <div className="text-center mb-16">
         <h2 className="text-5xl font-extrabold text-white">
-          Let's Work <span className="text-green-400">Together</span>
+          Let &apos s Work <span className="text-green-400">Together</span>
         </h2>
         <p className="text-gray-400 mt-3 text-lg">
-          Have a project in mind? Let's discuss how we can bring your ideas to life
+          Have a project in mind? Let &apos s discuss how we can bring your ideas to life
         </p>
       </div>
 
@@ -55,7 +55,7 @@ export default function ContactForm() {
         <div className="flex-1 text-white">
           <h3 className="text-3xl font-semibold mb-4">Get in touch</h3>
           <p className="text-gray-400 mb-8">
-            I'm always interested in hearing about new projects and
+            I &apos m always interested in hearing about new projects and
             opportunities. Whether you have a question or just want to say hi,
             feel free to reach out!
           </p>
