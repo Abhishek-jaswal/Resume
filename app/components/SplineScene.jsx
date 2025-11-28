@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const bubbles = [
   "Contact",
-  "Email",
+  "LinkedIn",
   "Experience",
   "Projects",
   "Education",
@@ -14,7 +14,7 @@ const bubbles = [
 ];
 const links = {
   Contact: "#contact",
-  Email: "mailto:your@email.com",
+  LinkedIn: "https://www.linkedin.com/in/abhishek-jaswall/",
   Experience: "#experience",
   Projects: "#projects",
   Education: "#education",
@@ -72,7 +72,7 @@ const SplineScene = () => {
   let y = Math.sin(angle) * radius;
 
   if (label === "Download CV") y -= 10;
-  if (label === "Email") y -= 20;
+  if (label === "LinkedIn") y -= 20;
   if (label === "Education") y += 30;
   if (label === "Skills") y += 20;
 
