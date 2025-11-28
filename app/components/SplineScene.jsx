@@ -12,6 +12,17 @@ const bubbles = [
   "GitHub",
   "Download CV",
 ];
+const links = {
+  Contact: "#contact",
+  Email: "mailto:your@email.com",
+  Experience: "#experience",
+  Projects: "#projects",
+  Education: "#education",
+  Skills: "#skills",
+  GitHub: "https://github.com/yourusername",
+  "Download CV": "https://drive.google.com/file/d/12BBJn3oAWxm5aoLntv5D1XE82xHD8uKz/view?usp=sharing",
+};
+
 
 const SplineScene = () => {
   const [radius, setRadius] = useState(250);
@@ -31,7 +42,7 @@ const SplineScene = () => {
   }, []);
 
   return (
-    <div className="relative flex justify-center items-center py-10 px-4">
+    <div className="relative flex justify-center items-center sm:py-4 py-24 px-4">
       {/* ---- Center iframe ---- */}
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
@@ -39,7 +50,6 @@ const SplineScene = () => {
         transition={{ duration: 0.6 }}
         className="
           w-full 
-          max-w-4xl
           aspect-video 
           rounded-3xl 
           overflow-hidden 
@@ -55,43 +65,52 @@ const SplineScene = () => {
       </motion.div>
 
       {/* ---- Perfect Circle Bubble Layout ---- */}
-      {bubbles.map((label, index) => {
-        const angle = (index / bubbles.length) * 2 * Math.PI;
+     {bubbles.map((label, index) => {
+  const angle = (index / bubbles.length) * 2 * Math.PI;
 
-        let x = Math.cos(angle) * radius;
-        let y = Math.sin(angle) * radius;
+  let x = Math.cos(angle) * radius;
+  let y = Math.sin(angle) * radius;
 
-        // Small vertical tweaks (avoid bat wings touching text)
-        if (label === "Download CV") y -= 20;
-        if (label === "Email") y -= 20;
-        if (label === "Education") y += 30;
-        if (label === "Skills") y += 20;
+  if (label === "Download CV") y -= 10;
+  if (label === "Email") y -= 20;
+  if (label === "Education") y += 30;
+  if (label === "Skills") y += 20;
 
-        return (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, scale: 0.4 }}
-            animate={{ opacity: 1, scale: 1, x, y }}
-            transition={{ duration: 1, delay: index * 0.08, type: "spring" }}
-            className="
-              absolute 
-              text-white 
-              bg-white/10 
-              backdrop-blur-md 
-              border border-white/20 
-              rounded-full 
-              px-4 py-1.5 
-              shadow-lg 
-              cursor-pointer 
-              hover:scale-110 
-              transition
-              text-sm
-            "
-          >
-            {label}
-          </motion.div>
-        );
-      })}
+  return (
+    <a
+      key={index}
+      href={links[label]}
+      target={links[label].startsWith("http") ? "_blank" : "_self"}
+      rel="noopener noreferrer"
+      className="absolute"
+      style={{ transform: `translate(${x}px, ${y}px)` }}
+    >
+      <motion.div
+        initial={{ opacity: 0, scale: 0.4 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1, delay: index * 0.08, type: "spring" }}
+        className="
+          text-white 
+          bg-white/10 
+          backdrop-blur-md 
+          border border-white/20 
+          rounded-full 
+          px-4 py-1.5 
+          shadow-lg 
+          cursor-pointer 
+          hover:scale-110 
+          transition
+          text-sm
+          whitespace-nowrap
+        "
+      >
+        {label}
+      </motion.div>
+    </a>
+  );
+})}
+
+   
     </div>
   );
 };
