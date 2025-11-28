@@ -1,7 +1,7 @@
 import React from 'react'
 export default function Header() {
   return (
-    <div className='sticky top-0 bg-gray-900 z-10'>
+    <div className='sticky top-0 bg-black z-10'>
     <header className="flex justify-between items-center p-4 max-w-5xl mx-auto 0 ">
     <h1 className="text-2xl font-bold">Portfolio</h1>
      
