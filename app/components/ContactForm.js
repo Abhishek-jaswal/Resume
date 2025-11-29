@@ -55,7 +55,7 @@ export default function ContactForm() {
         <div className="flex-1 text-white">
           <h3 className="text-3xl font-semibold mb-4">Get in touch</h3>
           <p className="text-gray-400 mb-8">
-            I &apos m always interested in hearing about new projects and
+            I & m always interested in hearing about new projects and
             opportunities. Whether you have a question or just want to say hi,
             feel free to reach out!
           </p>
@@ -67,7 +67,7 @@ export default function ContactForm() {
             </div>
             <div>
               <p className="text-gray-400 text-sm">Email</p>
-              <p className="font-semibold">your.email@example.com</p>
+              <p className="font-semibold">abhishekjaswal1122@gmail.com</p>
             </div>
           </div>
 
@@ -78,7 +78,7 @@ export default function ContactForm() {
             </div>
             <div>
               <p className="text-gray-400 text-sm">Phone</p>
-              <p className="font-semibold">+1 (123) 456-7890</p>
+              <p className="font-semibold">+91 97366-04890</p>
             </div>
           </div>
 
@@ -89,7 +89,7 @@ export default function ContactForm() {
             </div>
             <div>
               <p className="text-gray-400 text-sm">Location</p>
-              <p className="font-semibold">Your City, Country</p>
+              <p className="font-semibold">Dharamshala, India</p>
             </div>
           </div>
         </div>

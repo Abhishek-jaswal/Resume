@@ -27,7 +27,7 @@ export default function Education() {
 
   return (
     <section
-      className="text-white flex flex-col items-center mt-20 px-4"
+      className="text-white flex flex-col items-center  px-4"
       id="education"
     >
       {/* Title */}

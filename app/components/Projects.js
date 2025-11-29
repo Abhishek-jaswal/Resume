@@ -1,5 +1,87 @@
-import Image from 'next/image';
-import Link from 'next/link';
+import Image from "next/image";
+import Link from "next/link";
+
+export default function ProjectsSection() {
+  return (
+    <section className="mt-20 text-white" id="projects">
+      <div className="max-w-6xl mx-auto px-4">
+        {/* Title */}
+        <h2 className="text-4xl font-bold text-center mb-3">
+          Featured <span className="text-green-400">Projects</span>
+        </h2>
+        <p className="text-center text-gray-400 mb-12 max-w-2xl mx-auto">
+          Showcasing innovative solutions and creative implementations across various domains
+        </p>
+
+        {/* Projects */}
+        <div className="space-y-10">
+          {projects.map((project, index) => (
+            <div
+              key={index}
+              className="bg-[#0f1115] border border-[#1b1d24] rounded-2xl overflow-hidden shadow-[0_0_25px_rgba(0,255,170,0.06)] hover:shadow-[0_0_35px_rgba(0,255,170,0.15)] transition-all duration-300"
+            >
+              <Link
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="grid grid-cols-1 md:grid-cols-2"
+              >
+                {/* IMAGE SECTION */}
+                <div className="relative h-64 md:h-full w-full">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover grayscale hover:grayscale-0 transition duration-300"
+                  />
+                </div>
+
+                {/* CONTENT */}
+                <div className="p-7 flex flex-col justify-between">
+
+                  {/* Featured Badge */}
+                  <span className="text-xs bg-[#1e2a22] text-green-400 border border-green-700 px-3 py-1 rounded-full w-fit mb-3">
+                    Featured Project
+                  </span>
+
+                  {/* Title */}
+                  <h3 className="text-2xl font-semibold">{project.title}</h3>
+                  <p className="text-sm text-gray-500 mb-3">{project.date}</p>
+
+                  {/* Description */}
+                  <p className="text-gray-300 mb-4">{project.description}</p>
+
+                  {/* Tags */}
+                  <div className="flex flex-wrap gap-2 mb-5">
+                    {project.tags.map((tag, i) => (
+                      <span
+                        key={i}
+                        className="px-3 py-1 text-xs bg-[#1a1c23] text-gray-300 rounded-md border border-[#2a2d36]"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* BUTTONS */}
+                  <div className="flex items-center gap-4">
+                    <button className="px-4 py-2 rounded-lg border border-gray-600 text-gray-300 text-sm flex items-center gap-2 hover:bg-gray-800 transition">
+                      <span>📂</span> Source Code
+                    </button>
+
+                    <button className="px-4 py-2 rounded-lg bg-green-500 text-black font-medium text-sm hover:bg-green-400 transition">
+                      Live Demo
+                    </button>
+                  </div>
+                </div>
+              </Link>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
 
 const projects = [
   {
@@ -57,59 +139,3 @@ const projects = [
     link: 'https://foss-united.netlify.app/',
   },
 ];
-
-export default function ProjectsSection() {
-  return (
-    <section className="mt-20 bg-gray-900 text-white">
-      <div className="max-w-6xl mx-auto px-4" id="projects">
-        <h2 className="text-4xl font-bold text-center mb-4">Projects</h2>
-        <p className="text-center text-gray-400 mb-12">
-          I have worked on a wide range of projects.
-        </p>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {projects.map((project, index) => (
-            <Link
-              key={index}
-              href={project.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block"
-            >
-              <div className="bg-gray-800 rounded-2xl shadow-md p-4 border border-purple-500 hover:scale-105 transition-transform duration-300 flex flex-col h-full">
-                {/* Image Section */}
-                <div className="relative w-full h-40 rounded-lg overflow-hidden mb-4">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-
-                {/* Tags */}
-                <div className="flex flex-wrap gap-2 mb-2">
-                  {project.tags.map((tag, i) => (
-                    <span
-                      key={i}
-                      className="text-purple-300 text-xs rounded-full px-2 py-1 border border-purple-300"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Title, Date, Description */}
-                <h3 className="text-xl font-semibold mb-1">{project.title}</h3>
-                <p className="text-sm text-gray-400 mb-2">{project.date}</p>
-                <p className="text-sm text-gray-300 flex-grow">
-                  {project.description}
-                </p>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
