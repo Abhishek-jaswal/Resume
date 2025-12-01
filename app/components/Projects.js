@@ -129,13 +129,13 @@ const projects = [
     image: '/assets/chatt.gif',
     link: 'https://abhishek-chat.vercel.app/',
   },
-  {
-    title: 'Foss United',
-    date: 'Jan 2024 – March 2024',
-    description:
-      'Recreated the FOSS United website UI using Bootstrap, ensuring mobile-first and responsive design.',
-    tags: ['JavaScript', 'Bootstrap', 'Netlify'],
-    image: '/assets/foss united.gif',
-    link: 'https://foss-united.netlify.app/',
-  },
+ {
+  title: 'The North Himalayas',
+  date: 'November 2024',
+  description:
+    'Built a high-performance landing page for The North Himalayas tourism brand with lead generation, custom forms, SEO optimizations, and responsive modern UI using Next.js and Tailwind CSS.',
+  tags: ['Next.js', 'Tailwind CSS', 'SEO', 'Lead Generation'],
+  image: '/assets/tnh.gif',   
+  link: 'https://thenorthhimalayas.com/',  
+},
 ];
