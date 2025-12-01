@@ -5,6 +5,7 @@ export default function ProjectsSection() {
   return (
     <section className="mt-20 text-white" id="projects">
       <div className="max-w-6xl mx-auto px-4">
+        
         {/* Title */}
         <h2 className="text-4xl font-bold text-center mb-3">
           Featured <span className="text-green-400">Projects</span>
@@ -26,14 +27,25 @@ export default function ProjectsSection() {
                 rel="noopener noreferrer"
                 className="grid grid-cols-1 md:grid-cols-2"
               >
-                {/* IMAGE SECTION */}
+                {/* MEDIA SECTION */}
                 <div className="relative h-64 md:h-full w-full">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className="object-cover grayscale hover:grayscale-0 transition duration-300"
-                  />
+                  {project.isVideo ? (
+                    <video
+                      src={project.image}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-300"
+                    />
+                  ) : (
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      className="object-cover grayscale hover:grayscale-0 transition duration-300"
+                    />
+                  )}
                 </div>
 
                 {/* CONTENT */}
@@ -66,7 +78,7 @@ export default function ProjectsSection() {
                   {/* BUTTONS */}
                   <div className="flex items-center gap-4">
                     <button className="px-4 py-2 rounded-lg border border-gray-600 text-gray-300 text-sm flex items-center gap-2 hover:bg-gray-800 transition">
-                      <span>📂</span> Source Code
+                      GitHub
                     </button>
 
                     <button className="px-4 py-2 rounded-lg bg-green-500 text-black font-medium text-sm hover:bg-green-400 transition">
@@ -84,15 +96,31 @@ export default function ProjectsSection() {
 }
 
 const projects = [
+  // ⭐ MOST IMPORTANT PROJECT
   {
-    title: 'Portfolio',
-    date: 'March 2024',
+    title: 'Fund Tracking Admin & User System',
+    date: 'Jan 2025',
     description:
-      'Developed a modern, responsive resume submission webpage using Next.js, Tailwind CSS, Nodemailer, and Vercel for deployment.',
-    tags: ['Next JS', 'Tailwind css', 'Nodemailer', 'Vercel'],
-    image: '/assets/resume.gif',
-    link: 'https://abhishek-jaswal.vercel.app/',
+      'A full-stack real-time fund management system with Admin and User dashboards. Features include secure authentication, role-based access, transaction management, add/edit modals, filters, analytics, WebSocket-like real-time updates using Supabase channels, and a full Issue Management System.',
+    tags: ['Next.js', 'Supabase', 'PostgreSQL', 'Realtime', 'Tailwind', 'TypeScript'],
+    image: '/assets/fund.gif',
+    link: 'https://www.alpkid.com/pro',
+    important: true,
+    isVideo: false,
   },
+
+  {
+    title: 'The North Himalayas',
+    date: 'Nov 2025',
+    description:
+      'Built a high-performance landing page for The North Himalayas tourism brand with lead generation, custom forms, SEO optimizations, and responsive modern UI using Next.js and Tailwind CSS.',
+    tags: ['Next.js', 'Tailwind CSS', 'SEO', 'Lead Generation'],
+    image: '/assets/tnh.mp4',  // <-- YOUR VIDEO
+    link: 'https://thenorthhimalayas.com/',
+    important: true,
+    isVideo: true,             // <-- IMPORTANT
+  },
+
   {
     title: 'AI Interview Portal',
     date: 'March 2025',
@@ -101,25 +129,10 @@ const projects = [
     tags: ['Next.js', 'Node.js', 'Hasura', 'PostgreSQL'],
     image: '/assets/ai-interview.gif',
     link: 'https://ai-interview-platform-pied.vercel.app/',
+    important: true,
+    isVideo: false,
   },
-  {
-    title: 'CII-MCM',
-    date: 'August 2024',
-    description:
-      'Developed a student registration form during the CII MCM course launch using modern web technologies (Next.js, Tailwind CSS, Nodemailer) to collect user data and send notifications via email.',
-    tags: ['JavaScript', 'Tailwind CSS', 'ReactJS', 'Netlify'],
-    image: '/assets/cii.gif',
-    link: 'https://ciimcmtrust.netlify.app/',
-  },
-  {
-    title: 'Fashion Hub',
-    date: 'April 2024',
-    description:
-      'Built an online shopping platform "Fashion Hub" using Bootstrap, enabling users to view and buy fashion products.',
-    tags: ['JavaScript', 'Bootstrap', 'Tailwind CSS', 'Netlify'],
-    image: '/assets/foss.gif',
-    link: 'https://famms-bootstrap.netlify.app/',
-  },
+
   {
     title: 'Chat Box',
     date: 'May 2025',
@@ -128,14 +141,19 @@ const projects = [
     tags: ['Next.js', 'Socket.IO'],
     image: '/assets/chatt.gif',
     link: 'https://abhishek-chat.vercel.app/',
+    important: true,
+    isVideo: false,
   },
- {
-  title: 'The North Himalayas',
-  date: 'November 2024',
-  description:
-    'Built a high-performance landing page for The North Himalayas tourism brand with lead generation, custom forms, SEO optimizations, and responsive modern UI using Next.js and Tailwind CSS.',
-  tags: ['Next.js', 'Tailwind CSS', 'SEO', 'Lead Generation'],
-  image: '/assets/tnh.gif',   
-  link: 'https://thenorthhimalayas.com/',  
-},
+
+  {
+    title: 'Portfolio Website',
+    date: 'March 2024',
+    description:
+      'Developed a modern, responsive portfolio with resume submission, email automation using Nodemailer, and smooth UI components built in Next.js.',
+    tags: ['Next JS', 'Tailwind CSS', 'Nodemailer', 'Vercel'],
+    image: '/assets/resume.gif',
+    link: 'https://abhishek-jaswal.vercel.app/',
+    important: true,
+    isVideo: false,
+  },
 ];
