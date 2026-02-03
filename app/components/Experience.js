@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Calendar, Briefcase } from "lucide-react";
+import Image from "next/image";
 
 const experiences = [
   {
@@ -12,7 +13,9 @@ const experiences = [
     description:
       "Contributing to the development of MountainKid AI software and MountainKid Valley open-source projects. Improved UI/UX and implemented responsive interfaces using Next.js and Tailwind CSS.",
     skills: ["Next.js", "Tailwind CSS", "UI/UX", "Open Source"],
-    logo: "https://mountainkid.ai/favicon.ico",
+    logo: "/mountainkidai.png",
+   
+  
   },
   {
     title: "IT Trainer | Fullstack Development",
@@ -111,9 +114,11 @@ export default function Experience() {
                   {/* logo */}
                   <div className="flex-shrink-0">
                     <div className="w-14 h-14 rounded-xl bg-[#161821] flex items-center justify-center overflow-hidden">
-                      <img
+                      <Image
                         src={exp.logo}
                         alt={exp.company}
+                        width={30}
+                        height={30}
                         className="w-8 h-8 object-contain"
                         onError={(e) => {
                           e.currentTarget.style.display = "none";

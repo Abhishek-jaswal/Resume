@@ -37,7 +37,7 @@ export default function Main() {
             Available for opportunities
           </motion.div>
 
-          <h1 className="text-3xl font-extrabold">Hi, I'm <span className="text-green-500">Abhishek Jaswal</span></h1>
+          <h1 className="text-3xl font-extrabold">Hi, I`&apos`m <span className="text-green-500">Abhishek Jaswal</span></h1>
 
           <div className="text-2xl font-extrabold text-green-500 mt-4">
             <Typewriter
