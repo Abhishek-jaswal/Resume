@@ -144,7 +144,7 @@ export default function Skills() {
               {category.skills.map((skill) => (
                 <span
                   key={skill}
-                  className="px-3 py-1.5 text-sm rounded-lg
+                  className="px-2 py-1.5 text-sm rounded-lg
                              bg-[#161821] text-gray-300 border border-[#1f2130]
                              hover:bg-green-500/10 hover:text-green-400
                              transition-colors cursor-default"
