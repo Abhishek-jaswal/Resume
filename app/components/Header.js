@@ -1,24 +1,150 @@
-import React from 'react'
+"use client";
+
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X, Github, Download, Linkedin } from "lucide-react";
+import Image from "next/image";
+
+const navItems = [
+  { name: "About", href: "#about" },
+  { name: "Skills", href: "#skills" },
+  { name: "Projects", href: "#projects" },
+  { name: "Experience", href: "#experience" },
+  { name: "Education", href: "#education" },
+  { name: "Contact", href: "#contact" },
+];
+
 export default function Header() {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setIsScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <div className='sticky top-0 bg-[#0d0f16] z-10'>
-    <header className="flex justify-between items-center p-4 max-w-5xl mx-auto 0 ">
-    <h1 className="text-2xl font-bold">Portfolio</h1>
-     
-    <nav className="space-x-6 space-x-6 hidden md:flex">
-      <a href="#about" className="hover:text-green-400">About</a>
-      <a href="#skills" className="hover:text-green-400">Skills</a>
-      <a href="#projects" className="hover:text-green-400">Projects</a>
-      <a href="#experience" className="hover:text-green-400">Experience</a>
-      <a href="#education" className="hover:text-green-400">Education</a>
-      <a href="#contact" className="hover:text-green-400">Contact</a>
-    </nav>
-    
-    <a href="https://github.com/Abhishek-jaswal" className="px-2 py-2 border border-green-500 rounded-lg hover:bg-green-500 transition z-0">
-      Github Profile
-    </a>
-  </header>
- 
-  </div>
-  )
+    <>
+      {/* NAVBAR */}
+      <motion.header
+        initial={{ y: -80, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all ${
+          isScrolled
+            ? "backdrop-blur bg-[#0d0f16]/80 border-b border-white/10 py-3"
+            : "py-5"
+        }`}
+      >
+        <div className="max-w-5xl mx-auto px-4 flex items-center justify-between">
+          {/* Logo */}
+          <motion.a
+            href="#"
+            whileHover={{ scale: 1.05 }}
+            className="text-2xl font-bold text-green-400"
+          >
+         AJ
+          </motion.a>
+
+          {/* Desktop Nav */}
+          <nav className="hidden md:flex items-center gap-6">
+            {navItems.map((item) => (
+              <a
+                key={item.name}
+                href={item.href}
+                className="relative text-sm font-medium text-gray-300 hover:text-white transition group"
+              >
+                {item.name}
+                <span className="absolute left-1/2 -translate-x-1/2 -bottom-1 h-0.5 w-0 bg-green-500 transition-all group-hover:w-2/3" />
+              </a>
+            ))}
+          </nav>
+
+          {/* Desktop Actions */}
+          <div className="hidden md:flex items-center gap-3">
+            <a
+              href="https://linkedin.com/in/abhishekjaswall"
+              target="_blank"
+              className="p-2 rounded-lg hover:bg-white/10 transition"
+            >
+              <Linkedin className="w-5 h-5" />
+         
+            </a>
+             <a
+              href="https://github.com/Abhishek-jaswal"
+              target="_blank"
+              className="p-2 rounded-lg hover:bg-white/10 transition"
+            >
+         
+              <Github className="w-5 h-5" />
+            </a>
+
+            <a
+              href="https://drive.google.com/file/d/1eIlJgH3cYm5U68whTqA8k6KWqnGfJ6xs/view?usp=sharing"
+              target="_blank"
+              className="flex items-center gap-2 px-4 py-2 bg-green-600 hover:bg-green-700 rounded-lg text-sm font-medium shadow-lg shadow-green-600/30 transition"
+            >
+              <Download className="w-4 h-4" />
+              Resume
+            </a>
+          </div>
+
+          {/* Mobile Toggle */}
+          <button
+            className="md:hidden p-2"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle menu"
+          >
+            {isOpen ? <X /> : <Menu />}
+          </button>
+        </div>
+      </motion.header>
+
+      {/* MOBILE MENU */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.2 }}
+            className="fixed top-20 left-4 right-4 z-40 backdrop-blur bg-[#0d0f16]/90 border border-white/10 rounded-xl p-6 md:hidden"
+          >
+            <nav className="flex flex-col gap-4">
+              {navItems.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  onClick={() => setIsOpen(false)}
+                  className="text-lg text-gray-300 hover:text-white transition"
+                >
+                  {item.name}
+                </a>
+              ))}
+
+              <div className="pt-4 border-t border-white/10 flex gap-4">
+                <a
+                  href="https://github.com/Abhishek-jaswal"
+                  target="_blank"
+                  className="p-2 rounded-lg hover:bg-white/10 transition"
+                >
+                  <Github />
+                </a>
+
+                <a
+                  href="https://drive.google.com/file/d/12BBJn3oAWxm5aoLntv5D1XE82xHD8uKz/view"
+                  target="_blank"
+                  className="flex items-center gap-2 px-4 py-2 bg-green-600 rounded-lg text-sm font-medium"
+                >
+                  <Download className="w-4 h-4" />
+                  Resume
+                </a>
+              </div>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
+  );
 }
