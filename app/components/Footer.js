@@ -5,7 +5,8 @@ import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <footer className="w-full  px-6 text-white border-t border-white/10 bg-transparent pt-4">
+    <footer className=" w-full  px-6 text-white border-t border-white/10 bg-transparent pt-4">
+      
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-10">
 
         {/* LEFT SECTION */}

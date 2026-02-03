@@ -90,7 +90,8 @@ export default function Skills() {
   return (
     <section id="skills" className="relative mt-24 px-4">
       {/* background glow */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-green-500/5 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-b  via-green-500/5 to-transparent" />
+     
 
       {/* title */}
       <motion.div

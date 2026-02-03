@@ -3,7 +3,10 @@ import Link from "next/link";
 
 export default function ProjectsSection() {
   return (
-    <section className="mt-20 text-white" id="projects">
+    <section className="relative mt-20 text-white" id="projects">
+         {/* Background glow */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-green-500/5 to-transparent" />
+
       <div className="max-w-6xl mx-auto px-4">
         
         {/* Title */}

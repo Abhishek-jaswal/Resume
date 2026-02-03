@@ -38,7 +38,9 @@ export default function ContactForm() {
 
   return (
     <section id="contact" className="section-padding relative max-w-5xl mx-auto py-24 px-4">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-green-500/5 to-transparent" />
+      <div className="absolute top-1/4 -left-1/4 w-96 h-96 bg-green-500/10 rounded-full blur-3xl animate-pulse" />
+      <div className="absolute bottom-1/4 -right-1/5 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
+
 
       <div className="container-custom relative z-10">
         {/* Heading */}
