@@ -77,8 +77,37 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="antialiased bg-[#0d0f16] text-white">
+        
+        {/* SEO PERSON SCHEMA */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Abhishek Jaswal",
+              jobTitle: "Full Stack Developer",
+              url: "https://abhishek-jaswal.vercel.app",
+              image: "https://abhishek-jaswal.vercel.app/og-image.png",
+              sameAs: [
+                "https://github.com/Abhishek-jaswal",
+                "https://www.linkedin.com/in/abhishekjaswall",
+              ],
+              knowsAbout: [
+                "Next.js",
+                "React",
+                "Tailwind CSS",
+                "Node.js",
+                "PocketBase",
+                "Full Stack Development"
+              ],
+            }),
+          }}
+        />
+
         {children}
       </body>
     </html>
   );
 }
+
