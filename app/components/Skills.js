@@ -1,158 +1,161 @@
+"use client";
+
 import React from "react";
+import { motion } from "framer-motion";
+import {
+  Code2,
+  Server,
+  Database,
+  Terminal,
+  Box,
+  Briefcase,
+} from "lucide-react";
+
+const skillsData = [
+  {
+    icon: Code2,
+    title: "Frontend Development",
+    skills: [
+      "HTML5",
+      "CSS3",
+      "JavaScript (ES6+)",
+      "TypeScript",
+      "React.js",
+      "Next.js",
+      "Tailwind CSS",
+    ],
+  },
+  {
+    icon: Server,
+    title: "Backend Development",
+    skills: [
+      "Node.js",
+      "RESTful APIs",
+      "Authentication",
+      "Authorization",
+    ],
+  },
+  {
+    icon: Database,
+    title: "Database Management",
+    skills: ["PostgreSQL", "MySQL", "Supabase"],
+  },
+  {
+    icon: Box,
+    title: "DevOps & Tools",
+    skills: [
+      "Git",
+      "GitHub",
+      "Docker",
+      "Postman",
+      "AWS (Basics)",
+      "Vercel",
+      "Railway",
+    ],
+  },
+  {
+    icon: Briefcase,
+    title: "CRM & Business Tools",
+    skills: [
+      "CRM Data Handling",
+      "Dashboard Management",
+      "Workflow Automation",
+    ],
+  },
+  {
+    icon: Terminal,
+    title: "Programming Languages",
+    skills: ["JavaScript", "Python", "Java", "C++", "Rust (Learning)"],
+  },
+];
+
+const container = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.12 },
+  },
+};
+
+const item = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
 
 export default function Skills() {
   return (
-    <>
-      {/* Title */}
-      <div className="text-center mt-20 px-4" id="skills">
-        <h2 className="text-4xl font-bold text-white">
+    <section id="skills" className="relative mt-24 px-4">
+      {/* background glow */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-green-500/5 to-transparent" />
+
+      {/* title */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="text-center mb-16 relative z-10"
+      >
+        <h2 className="text-3xl font-bold text-white">
           Skills <span className="text-green-400">& Expertise</span>
         </h2>
-        <p className="text-gray-400 mt-2 max-w-2xl mx-auto">
-          A comprehensive toolkit of modern technologies and frameworks for building exceptional digital experiences
+        <p className="text-gray-400 mt-3 max-w-2xl mx-auto">
+          A comprehensive toolkit of modern technologies and frameworks for
+          building exceptional digital experiences
         </p>
-      </div>
+      </motion.div>
 
-      {/* GRID */}
-      <div className="mt-14 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-4">
-
-        {/* ---------- FRONTEND ---------- */}
-        <div className="bg-[#0e0f14] rounded-2xl p-7 border border-[#1c1d23] shadow-[0_0_20px_rgba(0,255,150,0.05)] hover:shadow-[0_0_30px_rgba(0,255,150,0.15)] transition">
-          <div className="flex items-center gap-3 mb-5">
-            <div className="w-12 h-12 bg-[#1c1f2c] rounded-xl flex items-center justify-center">
-              <span className="text-white text-xl">🧩</span>
-            </div>
-            <h3 className="text-xl font-semibold text-white">Frontend Development</h3>
-          </div>
-
-          <div className="flex flex-wrap gap-3">
-            {[
-              "React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"
-            ].map((skill) => (
-              <span
-                key={skill}
-                className="px-3 py-1 bg-[#161821] text-gray-300 rounded-lg text-sm border border-[#1f2130]"
+      {/* grid */}
+      <motion.div
+        variants={container}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="relative z-10 max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+      >
+        {skillsData.map((category) => (
+          <motion.div
+            key={category.title}
+            variants={item}
+            className="group bg-[#0e0f14]/80 backdrop-blur rounded-2xl p-7 border border-[#1c1d23]
+                       hover:border-green-500/40 transition-all duration-300
+                       shadow-[0_0_20px_rgba(0,255,150,0.05)]
+                       hover:shadow-[0_0_30px_rgba(0,255,150,0.15)]"
+          >
+            {/* header */}
+            <div className="flex items-center gap-4 mb-5">
+              <div
+                className="p-3 rounded-xl bg-green-500/10 text-green-400
+                           group-hover:bg-green-500 group-hover:text-black transition-colors"
               >
-                {skill}
-              </span>
-            ))}
-          </div>
-        </div>
-
-        {/* ---------- BACKEND ---------- */}
-        <div className="bg-[#0e0f14] rounded-2xl p-7 border border-[#1c1d23] shadow-[0_0_20px_rgba(155,0,255,0.05)] hover:shadow-[0_0_30px_rgba(155,0,255,0.15)] transition">
-          <div className="flex items-center gap-3 mb-5">
-            <div className="w-12 h-12 bg-[#29182c] rounded-xl flex items-center justify-center">
-              <span className="text-pink-400 text-xl">🛠</span>
+                <category.icon className="w-6 h-6" />
+              </div>
+              <h3 className="text-lg font-semibold text-white">
+                {category.title}
+              </h3>
             </div>
-            <h3 className="text-xl font-semibold text-white">Backend Development</h3>
-          </div>
 
-          <div className="flex flex-wrap gap-3">
-            {[
-              "Node.js", "Express", "REST APIs", "GraphQL"
-            ].map((skill) => (
-              <span
-                key={skill}
-                className="px-3 py-1 bg-[#161821] text-gray-300 rounded-lg text-sm border border-[#1f2130]"
-              >
-                {skill}
-              </span>
-            ))}
-          </div>
-        </div>
-
-        {/* ---------- DATABASE ---------- */}
-        <div className="bg-[#0e0f14] rounded-2xl p-7 border border-[#1c1d23] shadow-[0_0_20px_rgba(0,140,255,0.05)] hover:shadow-[0_0_30px_rgba(0,140,255,0.15)] transition">
-          <div className="flex items-center gap-3 mb-5">
-            <div className="w-12 h-12 bg-[#18222e] rounded-xl flex items-center justify-center">
-              <span className="text-purple-400 text-xl">💾</span>
+            {/* skills */}
+            <div className="flex flex-wrap gap-3">
+              {category.skills.map((skill) => (
+                <span
+                  key={skill}
+                  className="px-3 py-1.5 text-sm rounded-lg
+                             bg-[#161821] text-gray-300 border border-[#1f2130]
+                             hover:bg-green-500/10 hover:text-green-400
+                             transition-colors cursor-default"
+                >
+                  {skill}
+                </span>
+              ))}
             </div>
-            <h3 className="text-xl font-semibold text-white">Database Management</h3>
-          </div>
-
-          <div className="flex flex-wrap gap-3">
-            {[
-              "MongoDB", "PostgreSQL", "MySQL", "Supabase"
-            ].map((db) => (
-              <span
-                key={db}
-                className="px-3 py-1 bg-[#161821] text-gray-300 rounded-lg text-sm border border-[#1f2130]"
-              >
-                {db}
-              </span>
-            ))}
-          </div>
-        </div>
-
-        {/* ---------- PROGRAMMING LANG ---------- */}
-        <div className="bg-[#0e0f14] rounded-2xl p-7 border border-[#1c1d23] shadow-[0_0_20px_rgba(255,140,0,0.05)] hover:shadow-[0_0_30px_rgba(255,140,0,0.15)] transition">
-          <div className="flex items-center gap-3 mb-5">
-            <div className="w-12 h-12 bg-[#2b1e14] rounded-xl flex items-center justify-center">
-              <span className="text-yellow-400 text-xl">⚡</span>
-            </div>
-            <h3 className="text-xl font-semibold text-white">Programming Languages</h3>
-          </div>
-
-          <div className="flex flex-wrap gap-3">
-            {[
-              "JavaScript", "TypeScript", "Python", "HTML/CSS"
-            ].map((lang) => (
-              <span
-                key={lang}
-                className="px-3 py-1 bg-[#161821] text-gray-300 rounded-lg text-sm border border-[#1f2130]"
-              >
-                {lang}
-              </span>
-            ))}
-          </div>
-        </div>
-
-        {/* ---------- UI/UX ---------- */}
-        <div className="bg-[#0e0f14] rounded-2xl p-7 border border-[#1c1d23] shadow-[0_0_20px_rgba(255,0,120,0.05)] hover:shadow-[0_0_30px_rgba(255,0,120,0.15)] transition">
-          <div className="flex items-center gap-3 mb-5">
-            <div className="w-12 h-12 bg-[#2b1420] rounded-xl flex items-center justify-center">
-              <span className="text-pink-400 text-xl">🎨</span>
-            </div>
-            <h3 className="text-xl font-semibold text-white">Design & UI/UX</h3>
-          </div>
-
-          <div className="flex flex-wrap gap-3">
-            {["Figma", "UI/UX Design", "Responsive Design", "Three.js"].map((item) => (
-              <span
-                key={item}
-                className="px-3 py-1 bg-[#161821] text-gray-300 rounded-lg text-sm border border-[#1f2130]"
-              >
-                {item}
-              </span>
-            ))}
-          </div>
-        </div>
-
-        {/* ---------- TOOLS ---------- */}
-        <div className="bg-[#0e0f14] rounded-2xl p-7 border border-[#1c1d23] shadow-[0_0_20px_rgba(0,200,255,0.05)] hover:shadow-[0_0_30px_rgba(0,200,255,0.15)] transition">
-          <div className="flex items-center gap-3 mb-5">
-            <div className="w-12 h-12 bg-[#13252e] rounded-xl flex items-center justify-center">
-              <span className="text-cyan-400 text-xl">📦</span>
-            </div>
-            <h3 className="text-xl font-semibold text-white">Tools & Platforms</h3>
-          </div>
-
-          <div className="flex flex-wrap gap-3">
-            {[
-              "Git", "VS Code", "Postman", "Docker"
-            ].map((tool) => (
-              <span
-                key={tool}
-                className="px-3 py-1 bg-[#161821] text-gray-300 rounded-lg text-sm border border-[#1f2130]"
-              >
-                {tool}
-              </span>
-            ))}
-          </div>
-        </div>
-
-      </div>
-    </>
+          </motion.div>
+        ))}
+      </motion.div>
+    </section>
   );
 }

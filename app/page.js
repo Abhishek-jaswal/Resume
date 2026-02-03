@@ -9,7 +9,6 @@ import Main from './components/Main';
 import Projects from './components/Projects';
 import Skills from './components/Skills';
 import { motion } from "framer-motion";
-import SplineScene from './components/SplineScene'; // ✅ New 3D component
 
 export default function Home() {
   const experiences = [
@@ -43,9 +42,8 @@ export default function Home() {
   ];
 
   return (
-    <div className="bg-[#0d0f16] text-white min-h-screen">
-        {/* ✨ 3D Spline Scene */}
-      <SplineScene />
+    <div className="text-white min-h-screen">
+     
       <Header />
 
       {/* Hero Section */}
