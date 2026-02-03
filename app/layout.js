@@ -1,14 +1,13 @@
 import "./globals.css";
-import type { Metadata } from "next";
 
-export const metadata: Metadata = {
+export const metadata = {
   title: {
     default: "Abhishek Jaswal | Full Stack Developer",
     template: "%s | Abhishek Jaswal",
   },
 
   description:
-    "Abhishek Jaswal is a Full Stack Developer with 3+ years of experience in Next.js, React, Tailwind CSS, Node.js, and backend systems. Building scalable, high-performance web applications.",
+    "Abhishek Jaswal is a Full Stack Developer with 3+ years of experience in Next.js, React, Tailwind CSS, Node.js, and backend systems.",
 
   keywords: [
     "Abhishek Jaswal",
@@ -20,10 +19,15 @@ export const metadata: Metadata = {
     "Backend Developer",
     "Tailwind CSS",
     "Node.js",
-    "PocketBase",
-    "CRM Developer",
     "Web Developer Portfolio",
     "Software Engineer India",
+    "Software Developer",
+    "Open Source Contributor",
+    "CRM Developer",
+    "PocketBase",
+    "website developer",
+    "website to app",
+    "Express.js Developer",
   ],
 
   authors: [{ name: "Abhishek Jaswal" }],
@@ -43,7 +47,7 @@ export const metadata: Metadata = {
     siteName: "Abhishek Jaswal Portfolio",
     images: [
       {
-        url: "/og-image.png", // create this image (1200x630)
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "Abhishek Jaswal Portfolio",
@@ -59,28 +63,17 @@ export const metadata: Metadata = {
     description:
       "Full Stack Developer skilled in Next.js, React, Tailwind CSS, and backend development.",
     images: ["/og-image.png"],
-    creator: "@AJaswal52534", // optional
   },
 
   robots: {
     index: true,
     follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
   },
 
   category: "technology",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="antialiased bg-[#0d0f16] text-white">
