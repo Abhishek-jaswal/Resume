@@ -1,9 +1,8 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback, memo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Github, Download, Linkedin } from "lucide-react";
-import Image from "next/image";
 
 const navItems = [
   { name: "About", href: "#about" },
@@ -14,23 +13,45 @@ const navItems = [
   { name: "Contact", href: "#contact" },
 ];
 
-export default function Header() {
+function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
+  /* ✅ THROTTLED SCROLL (PERFORMANCE BOOST) */
   useEffect(() => {
-    const onScroll = () => setIsScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", onScroll);
+    let ticking = false;
+
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setIsScrolled(window.scrollY > 50);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  /* ✅ MEMOIZED HANDLERS */
+  const toggleMenu = useCallback(() => {
+    setIsOpen((prev) => !prev);
+  }, []);
+
+  const closeMenu = useCallback(() => {
+    setIsOpen(false);
   }, []);
 
   return (
     <>
       {/* NAVBAR */}
       <motion.header
+        role="banner"
         initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all ${
           isScrolled
             ? "backdrop-blur bg-[#0d0f16]/80 border-b border-white/10 py-3"
@@ -41,14 +62,18 @@ export default function Header() {
           {/* Logo */}
           <motion.a
             href="#"
+            aria-label="Homepage"
             whileHover={{ scale: 1.05 }}
             className="text-2xl font-bold text-green-400"
           >
-         AJ
+            AJ
           </motion.a>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-6">
+          <nav
+            className="hidden md:flex items-center gap-6"
+            aria-label="Primary navigation"
+          >
             {navItems.map((item) => (
               <a
                 key={item.name}
@@ -66,23 +91,27 @@ export default function Header() {
             <a
               href="https://linkedin.com/in/abhishekjaswall"
               target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn profile"
               className="p-2 rounded-lg hover:bg-white/10 transition"
             >
               <Linkedin className="w-5 h-5" />
-         
             </a>
-             <a
+
+            <a
               href="https://github.com/Abhishek-jaswal"
               target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub profile"
               className="p-2 rounded-lg hover:bg-white/10 transition"
             >
-         
               <Github className="w-5 h-5" />
             </a>
 
             <a
               href="https://drive.google.com/file/d/1eIlJgH3cYm5U68whTqA8k6KWqnGfJ6xs/view?usp=sharing"
               target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center gap-2 px-4 py-2 bg-green-600 hover:bg-green-700 rounded-lg text-sm font-medium shadow-lg shadow-green-600/30 transition"
             >
               <Download className="w-4 h-4" />
@@ -92,9 +121,10 @@ export default function Header() {
 
           {/* Mobile Toggle */}
           <button
-            className="md:hidden p-2"
-            onClick={() => setIsOpen(!isOpen)}
+            className="md:hidden p-3 rounded-lg hover:bg-white/10 transition"
+            onClick={toggleMenu}
             aria-label="Toggle menu"
+            aria-expanded={isOpen}
           >
             {isOpen ? <X /> : <Menu />}
           </button>
@@ -105,9 +135,11 @@ export default function Header() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
+            role="navigation"
+            aria-label="Mobile navigation"
+            initial={{ opacity: 0, y: -16 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
+            exit={{ opacity: 0, y: -16 }}
             transition={{ duration: 0.2 }}
             className="fixed top-20 left-4 right-4 z-40 backdrop-blur bg-[#0d0f16]/90 border border-white/10 rounded-xl p-6 md:hidden"
           >
@@ -116,7 +148,7 @@ export default function Header() {
                 <a
                   key={item.name}
                   href={item.href}
-                  onClick={() => setIsOpen(false)}
+                  onClick={closeMenu}
                   className="text-lg text-gray-300 hover:text-white transition"
                 >
                   {item.name}
@@ -127,6 +159,8 @@ export default function Header() {
                 <a
                   href="https://github.com/Abhishek-jaswal"
                   target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="GitHub profile"
                   className="p-2 rounded-lg hover:bg-white/10 transition"
                 >
                   <Github />
@@ -135,6 +169,7 @@ export default function Header() {
                 <a
                   href="https://drive.google.com/file/d/12BBJn3oAWxm5aoLntv5D1XE82xHD8uKz/view"
                   target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center gap-2 px-4 py-2 bg-green-600 rounded-lg text-sm font-medium"
                 >
                   <Download className="w-4 h-4" />
@@ -148,3 +183,5 @@ export default function Header() {
     </>
   );
 }
+
+export default memo(Header);
