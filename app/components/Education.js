@@ -52,9 +52,14 @@ const item = {
 export default function Education() {
   return (
     <section id="education" className="relative  px-4">
-      {/* Background glow */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-green-500/5 to-transparent" />
+       {/* Background glow */}
+      <div className="absolute left-1/2 w-72 h-72 sm:w-96 sm:h-96
+        bg-green-500/5 sm:bg-green-500/10
+        blur-2xl sm:blur-3xl animate-pulse" />
 
+      <div className="absolute bottom-1/4 -right-1/7   w-72 h-72 sm:w-96 sm:h-96
+             bg-cyan-500/5 sm:bg-cyan-500/10
+        blur-2xl sm:blur-3xl animate-pulse delay-1000" />
       {/* Heading */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
