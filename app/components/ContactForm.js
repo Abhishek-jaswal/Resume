@@ -1,8 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Send, Github, Linkedin } from "lucide-react";
+
+/* =====================
+   MAIN COMPONENT
+===================== */
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -14,27 +18,25 @@ export default function ContactForm() {
 
   const [status, setStatus] = useState("");
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
+const handleChange = useCallback((e) => {
+  const { name, value } = e.target;
+  setFormData((prev) => ({ ...prev, [name]: value }));
+}, []);
 
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setStatus("Sending...");
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  setStatus("Sending...");
+
 
     try {
-      const response = await fetch("/api/contact", {
+      const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
 
-      const result = await response.json();
+      const result = await res.json();
 
       if (result.success) {
         setStatus("Message Sent!");
@@ -42,7 +44,7 @@ export default function ContactForm() {
       } else {
         setStatus("Failed to send message");
       }
-    } catch (error) {
+    } catch {
       setStatus("Something went wrong");
     }
   };
@@ -50,12 +52,18 @@ export default function ContactForm() {
   return (
     <section
       id="contact"
-      className="relative max-w-5xl mx-auto py-24 px-4"
       aria-labelledby="contact-heading"
+      className="relative max-w-7xl mx-auto py-24 px-4
+      bg-[#080a12] sm:bg-transparent overflow-hidden"
     >
-      {/* background glow */}
-      <div className="absolute top-1/4 -left-1/4 w-96 h-96 bg-green-500/10 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute bottom-1/4 -right-1/5 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
+      {/* Mobile-optimized background glow */}
+      <div className="absolute top-1/4 -left-1/4 w-72 h-72 sm:w-96 sm:h-96
+        bg-green-500/5 sm:bg-green-500/10
+        blur-2xl sm:blur-3xl animate-pulse" />
+
+      <div className="absolute bottom-1/4 -right-1/5 w-72 h-72 sm:w-96 sm:h-96
+        bg-cyan-500/5 sm:bg-cyan-500/10
+        blur-2xl sm:blur-3xl animate-pulse delay-1000" />
 
       <div className="relative z-10">
         {/* Heading */}
@@ -78,8 +86,8 @@ export default function ContactForm() {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-8">
-          {/* LEFT – Contact Info */}
+        <div className="grid lg:grid-cols-2 gap-10">
+          {/* LEFT */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -87,30 +95,18 @@ export default function ContactForm() {
             transition={{ duration: 0.6 }}
           >
             <h3 className="text-2xl font-bold mb-8">Get in touch</h3>
+
             <p className="text-gray-400 mb-6">
               I&apos;m always interested in hearing about new projects and
               opportunities.
             </p>
 
-            <div className="space-y-3">
-              <ContactItem
-                icon={Mail}
-                label="Email"
-                value="abhignitejaswal@gmail.com"
-              />
-              <ContactItem
-                icon={Phone}
-                label="Phone"
-                value="+91 8894727339"
-              />
-              <ContactItem
-                icon={MapPin}
-                label="Location"
-                value="Dharamshala, India"
-              />
+            <div className="space-y-4">
+              <ContactItem icon={Mail} label="Email" value="abhignitejaswal@gmail.com" />
+              <ContactItem icon={Phone} label="Phone" value="+91 8894727339" />
+              <ContactItem icon={MapPin} label="Location" value="Dharamshala, India" />
             </div>
 
-            {/* Socials */}
             <div className="flex gap-4 mt-6">
               <SocialLink
                 href="https://github.com/Abhishek-jaswal"
@@ -125,7 +121,7 @@ export default function ContactForm() {
             </div>
           </motion.div>
 
-          {/* RIGHT – Form */}
+          {/* RIGHT */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -134,8 +130,8 @@ export default function ContactForm() {
           >
             <form
               onSubmit={handleSubmit}
-              className="glass-card p-6 lg:p-8 space-y-6"
               noValidate
+              className="glass-card p-6 sm:p-8 space-y-6"
             >
               <div className="grid sm:grid-cols-2 gap-6">
                 <FormInput
@@ -176,7 +172,11 @@ export default function ContactForm() {
 
               <button
                 type="submit"
-                className="w-full bg-green-500 hover:bg-green-600 text-black font-semibold p-3 rounded-lg flex items-center justify-center gap-2 transition"
+                className="w-full bg-green-400 sm:bg-green-500
+                hover:bg-green-600 text-black font-semibold
+                p-3 rounded-lg flex items-center justify-center gap-2
+                transition focus:outline-none focus:ring-2
+                focus:ring-green-400/50"
               >
                 <Send className="w-4 h-4" />
                 Send Message
@@ -199,7 +199,9 @@ export default function ContactForm() {
   );
 }
 
-/* ---------- Reusable Components ---------- */
+/* =====================
+   REUSABLE PARTS
+===================== */
 
 function ContactItem({ icon: Icon, label, value }) {
   return (
@@ -232,13 +234,17 @@ function SocialLink({ href, icon: Icon, label }) {
 function FormInput({ label, id, ...props }) {
   return (
     <div>
-      <label htmlFor={id} className="text-sm">
+      <label htmlFor={id} className="text-sm text-gray-300">
         {label}
       </label>
       <input
         id={id}
         {...props}
-        className="w-full mt-1 p-2 rounded-lg bg-[#0b0d14] border border-green-500/40"
+        className="w-full mt-1 p-2 rounded-lg
+        bg-[#0f1320] sm:bg-[#0b0d14]
+        border border-green-500/30
+        focus:border-green-400 focus:ring-1
+        focus:ring-green-400/40 outline-none"
       />
     </div>
   );
@@ -247,14 +253,18 @@ function FormInput({ label, id, ...props }) {
 function FormTextarea({ label, id, ...props }) {
   return (
     <div>
-      <label htmlFor={id} className="text-sm">
+      <label htmlFor={id} className="text-sm text-gray-300">
         {label}
       </label>
       <textarea
         id={id}
         rows={5}
         {...props}
-        className="w-full mt-1 p-3 rounded-lg bg-[#0b0d14] border border-green-500/40 resize-none"
+        className="w-full mt-1 p-3 rounded-lg
+        bg-[#0f1320] sm:bg-[#0b0d14]
+        border border-green-500/30
+        focus:border-green-400 focus:ring-1
+        focus:ring-green-400/40 outline-none resize-none"
       />
     </div>
   );

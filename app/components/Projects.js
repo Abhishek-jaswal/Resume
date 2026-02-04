@@ -5,8 +5,13 @@ export default function ProjectsSection() {
   return (
     <section className="relative mt-20 text-white" id="projects">
          {/* Background glow */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-green-500/5 to-transparent" />
+      <div className="absolute left-1/2 w-72 h-72 sm:w-96 sm:h-96
+          bg-cyan-500/5 sm:bg-cyan-500/10
+        blur-2xl sm:blur-3xl animate-pulse" />
 
+      <div className="absolute bottom-1/4 -right-1/7   w-72 h-72 sm:w-96 sm:h-96
+        bg-green-500/5 sm:bg-green-500/10
+        blur-2xl sm:blur-3xl animate-pulse delay-1000" />
       <div className="max-w-6xl mx-auto px-4">
         
         {/* Title */}
