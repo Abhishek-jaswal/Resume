@@ -14,7 +14,7 @@ export default function Home() {
  
 
   return (
-    <div className="text-white min-h-screen">
+    <div className="text-white min-h-screen bg-black relative overflow-hidden">
      
       <Header />
 

@@ -112,8 +112,7 @@ export default function Experience() {
                 className="bg-[#0e0f14]/80 backdrop-blur rounded-2xl p-6 lg:ml-16
                            border border-[#1c1d23] transition-all duration-300
                            hover:border-green-500/40
-                           shadow-[0_0_20px_rgba(0,255,150,0.05)]
-                           hover:shadow-[0_0_30px_rgba(0,255,150,0.15)]"
+                            hover:bg-[#0e0f14]/90"
               >
                 <div className="flex flex-col sm:flex-row gap-6">
                   {/* logo */}

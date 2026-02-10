@@ -139,8 +139,7 @@ export default function Skills() {
             className="group bg-[#0e0f14]/80 backdrop-blur rounded-2xl p-7
                        border border-[#1c1d23]
                        hover:border-green-500/40 transition-all duration-300
-                       shadow-[0_0_20px_rgba(0,255,150,0.05)]
-                       hover:shadow-[0_0_30px_rgba(0,255,150,0.15)]"
+                        cursor-default"
           >
             {/* Header */}
             <div className="flex items-center gap-4 mb-5">
