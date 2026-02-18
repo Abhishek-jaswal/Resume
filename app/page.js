@@ -8,41 +8,36 @@ import Header from './components/Header';
 import Main from './components/Main';
 import Projects from './components/Projects';
 import Skills from './components/Skills';
-import { motion } from "framer-motion";
 
 export default function Home() {
- 
-
   return (
-    <div className="text-white min-h-screen bg-black relative overflow-hidden">
-     
+    <div className="text-white min-h-screen bg-[#070a12] relative overflow-hidden">
       <Header />
 
-   
+      <main>
         <Main />
-    
 
-    
+        {/* Divider */}
+        <div className="section-divider" />
 
-    
         <Skills />
-    
 
-      {/* Projects */}
-      <Projects />
+        <div className="section-divider" />
 
-      {/* Experience */}
-    
+        <Projects />
+
+        <div className="section-divider" />
+
         <Experience />
-     
 
-      {/* Education */}
-      <Education />
+        <div className="section-divider" />
 
-      {/* Contact Form */}
-  
+        <Education />
+
+        <div className="section-divider" />
+
         <ContactForm />
-   
+      </main>
 
       <Footer />
     </div>

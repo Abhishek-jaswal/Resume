@@ -1,36 +1,172 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Abhishek Jaswal — Portfolio
+
+A modern, responsive developer portfolio built with **Next.js 14**, **Tailwind CSS**, and **Framer Motion**. Features a dark aesthetic with glassmorphism cards, smooth animations, a real-time contact form, and full SEO optimization.
+
+🌐 **Live:** [abhishek-jaswal.vercel.app](https://abhishek-jaswal.vercel.app)
+
+---
+
+## Tech Stack
+
+| Layer | Technology |
+|---|---|
+| Framework | Next.js 14 (App Router) |
+| Styling | Tailwind CSS |
+| Animations | Framer Motion |
+| Email | Nodemailer (Gmail SMTP) |
+| Fonts | Syne + DM Sans (Google Fonts) |
+| Icons | Lucide React, React Icons |
+| Deployment | Vercel |
+
+---
+
+## Project Structure
+
+```
+├── app/
+│   ├── layout.js           # Root layout, fonts, SEO metadata, JSON-LD schema
+│   ├── page.js             # Home page — assembles all sections
+│   ├── globals.css         # Global styles, design tokens, utility classes
+│   └── api/
+│       └── contact/
+│           └── route.js    # POST endpoint — Nodemailer email handler
+│
+└── components/
+    ├── Header.js           # Fixed navbar with scroll detection, mobile drawer
+    ├── Main.js             # Hero section with typewriter, floating image, CTAs
+    ├── Skills.js           # Color-coded skill category cards
+    ├── Projects.js         # Featured projects with media, tags, live links
+    ├── Experience.js       # Timeline-style work history
+    ├── Education.js        # Academic background cards
+    ├── ContactForm.js      # Contact form + info panel
+    ├── Footer.js           # Footer with brand, social links, back-to-top
+    └── LocalTime.js        # Live clock widget (top-right corner)
+```
+
+---
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+
+- npm or yarn
+- A Gmail account (for the contact form)
+
+### Installation
+
+```bash
+# Clone the repo
+git clone https://github.com/Abhishek-jaswal/portfolio.git
+cd portfolio
+
+# Install dependencies
+npm install
+```
+
+### Environment Variables
+
+Create a `.env.local` file in the root directory:
+
+```env
+EMAIL_USER=your-gmail-address@gmail.com
+EMAIL_PASS=your-gmail-app-password
+RECEIVER_EMAIL=where-you-want-emails-sent@gmail.com
+```
+
+> **Important:** Use a [Gmail App Password](https://myaccount.google.com/apppasswords), not your regular Gmail password. You'll need to enable 2-Factor Authentication on your Google account first.
+
+### Run Locally
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### Build for Production
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## Features
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Responsive Design** — Mobile-first, tested across all screen sizes
+- **Dark Theme** — Deep navy background (`#070a12`) with green accents
+- **Smooth Animations** — Framer Motion scroll-triggered reveals and micro-interactions
+- **Typewriter Effect** — Animated role titles in the hero section
+- **Contact Form** — Fully functional email submission via Nodemailer (no third-party service needed)
+- **SEO Optimized** — OpenGraph tags, Twitter cards, JSON-LD Person schema, canonical URLs
+- **Performance** — `next/image` with priority loading, throttled scroll listeners, memoized components
+- **Accessibility** — ARIA labels, semantic HTML, keyboard navigable, `aria-live` regions
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## Deployment (Vercel)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Push your code to GitHub
+2. Import the repository at [vercel.com/new](https://vercel.com/new)
+3. Add the three environment variables in the Vercel dashboard under **Settings → Environment Variables**
+4. Deploy — Vercel auto-detects Next.js
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+---
+
+## Customization
+
+### Update personal info
+
+| File | What to change |
+|---|---|
+| `components/Main.js` | Name, bio, hero CTAs, photo |
+| `components/Skills.js` | Skill categories and items |
+| `components/Projects.js` | Project list, links, images |
+| `components/Experience.js` | Work history |
+| `components/Education.js` | Education entries |
+| `components/ContactForm.js` | Email, phone, location, social links |
+| `app/layout.js` | Page title, meta description, keywords, schema |
+
+### Swap profile photo
+
+Replace `/public/abhishekk.jpeg` with your own image (keep the same filename or update the `src` in `Main.js`).
+
+### Add/remove sections
+
+Each section is a standalone component. Simply add or remove it from `app/page.js`.
+
+---
+
+## Assets
+
+Place all project media in `/public/assets/`:
+
+```
+public/
+├── abhishekk.jpeg       # Profile photo
+├── og-image.png         # OpenGraph image (1200×630)
+├── niit.png             # Education logos
+├── NIIT-1.png
+├── dharamshala.png
+├── mountainkidai.png    # Company logos
+├── logo-mcm.png
+├── MIS.png
+└── assets/
+    ├── fund.gif
+    ├── tnh.mp4
+    ├── ai-interview.gif
+    ├── chatt.gif
+    └── resume.gif
+```
+
+---
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+---
+
+<p align="center">Built with ❤️ by <a href="https://github.com/Abhishek-jaswal">Abhishek Jaswal</a></p>

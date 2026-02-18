@@ -2,10 +2,10 @@
 
 import { useState, useCallback } from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Send, Github, Linkedin } from "lucide-react";
+import { Mail, Phone, MapPin, Send, Github, Linkedin, ArrowRight } from "lucide-react";
 
 /* =====================
-   MAIN COMPONENT
+   MAIN COMPONENT — Logic unchanged
 ===================== */
 
 export default function ContactForm() {
@@ -18,16 +18,14 @@ export default function ContactForm() {
 
   const [status, setStatus] = useState("");
 
-const handleChange = useCallback((e) => {
-  const { name, value } = e.target;
-  setFormData((prev) => ({ ...prev, [name]: value }));
-}, []);
+  const handleChange = useCallback((e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  }, []);
 
-
-const handleSubmit = async (e) => {
-  e.preventDefault();
-  setStatus("Sending...");
-
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus("Sending...");
 
     try {
       const res = await fetch("/api/contact", {
@@ -53,93 +51,97 @@ const handleSubmit = async (e) => {
     <section
       id="contact"
       aria-labelledby="contact-heading"
-      className="relative max-w-7xl mx-auto py-24 px-4
-      bg-[#080a12] sm:bg-transparent overflow-hidden"
+      className="relative py-28 px-6 overflow-hidden"
     >
-      {/* Mobile-optimized background glow */}
-      <div className="absolute top-1/4 -left-1/4 w-72 h-72 sm:w-96 sm:h-96
-        bg-green-500/5 sm:bg-green-500/10
-        blur-2xl sm:blur-3xl animate-pulse" />
+      {/* Ambient glows */}
+      <div className="absolute top-0 left-1/4 w-[500px] h-[300px] bg-green-500/[0.05] blur-[100px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-[400px] h-[250px] bg-cyan-500/[0.04] blur-[80px] rounded-full pointer-events-none" />
 
-      <div className="absolute bottom-1/4 -right-1/5 w-72 h-72 sm:w-96 sm:h-96
-        bg-cyan-500/5 sm:bg-cyan-500/10
-        blur-2xl sm:blur-3xl animate-pulse delay-1000" />
-
-      <div className="relative z-10">
+      <div className="relative z-10 max-w-6xl mx-auto">
         {/* Heading */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
+          <span className="pill mb-5 inline-flex">✉️ Contact</span>
           <h2
             id="contact-heading"
-            className="text-2xl sm:text-3xl font-extrabold"
+            className="font-syne text-3xl sm:text-4xl font-bold text-white mt-3"
           >
             Let&apos;s Work <span className="text-green-400">Together</span>
           </h2>
-          <p className="text-gray-400 mt-3 max-w-2xl mx-auto">
-            Have a project in mind? Let&apos;s discuss how we can bring your ideas
-            to life.
+          <p className="text-gray-500 mt-4 max-w-xl mx-auto leading-relaxed">
+            Have a project in mind? Let&apos;s discuss how we can bring your ideas to life.
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-10">
-          {/* LEFT */}
+        <div className="grid lg:grid-cols-5 gap-10">
+          {/* LEFT — Contact info */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: -24 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
+            className="lg:col-span-2 flex flex-col gap-5"
           >
-            <h3 className="text-2xl font-bold mb-8">Get in touch</h3>
+            <div>
+              <h3 className="font-syne text-xl font-bold text-white mb-2">Get in touch</h3>
+              <p className="text-gray-500 text-sm leading-relaxed">
+                I&apos;m always interested in hearing about new projects and opportunities.
+              </p>
+            </div>
 
-            <p className="text-gray-400 mb-6">
-              I&apos;m always interested in hearing about new projects and
-              opportunities.
-            </p>
-
-            <div className="space-y-4">
+            <div className="space-y-3">
               <ContactItem icon={Mail} label="Email" value="abhignitejaswal@gmail.com" />
               <ContactItem icon={Phone} label="Phone" value="+91 8894727339" />
               <ContactItem icon={MapPin} label="Location" value="Dharamshala, India" />
             </div>
 
-            <div className="flex gap-4 mt-6">
-              <SocialLink
-                href="https://github.com/Abhishek-jaswal"
-                icon={Github}
-                label="GitHub"
-              />
-              <SocialLink
-                href="https://www.linkedin.com/in/abhishek-jaswall/"
-                icon={Linkedin}
-                label="LinkedIn"
-              />
+            {/* Social links */}
+            <div className="mt-2">
+              <p className="text-xs text-gray-600 uppercase tracking-widest mb-3">Find me on</p>
+              <div className="flex gap-3">
+                <SocialLink href="https://github.com/Abhishek-jaswal" icon={Github} label="GitHub" />
+                <SocialLink href="https://www.linkedin.com/in/abhishek-jaswall/" icon={Linkedin} label="LinkedIn" />
+              </div>
+            </div>
+
+            {/* Availability card */}
+            <div className="mt-auto p-5 rounded-2xl bg-green-500/[0.06] border border-green-500/15">
+              <div className="flex items-center gap-2 mb-2">
+                <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+                <span className="text-green-400 text-sm font-semibold">Available for work</span>
+              </div>
+              <p className="text-gray-500 text-xs leading-relaxed">
+                Currently open to freelance projects and full-time opportunities.
+              </p>
             </div>
           </motion.div>
 
-          {/* RIGHT */}
+          {/* RIGHT — Form */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
+            initial={{ opacity: 0, x: 24 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
+            className="lg:col-span-3"
           >
             <form
               onSubmit={handleSubmit}
               noValidate
-              className="glass-card p-6 sm:p-8 space-y-6"
+              className="bg-[#0a0d18]/80 backdrop-blur rounded-2xl p-6 sm:p-8 border border-white/[0.06] space-y-5"
             >
-              <div className="grid sm:grid-cols-2 gap-6">
+              <div className="grid sm:grid-cols-2 gap-5">
                 <FormInput
                   label="Full Name"
                   id="name"
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
+                  placeholder="John Doe"
                   required
                 />
                 <FormInput
@@ -149,6 +151,7 @@ const handleSubmit = async (e) => {
                   type="email"
                   value={formData.email}
                   onChange={handleChange}
+                  placeholder="john@example.com"
                   required
                 />
               </div>
@@ -159,6 +162,7 @@ const handleSubmit = async (e) => {
                 name="subject"
                 value={formData.subject}
                 onChange={handleChange}
+                placeholder="Project inquiry"
               />
 
               <FormTextarea
@@ -167,28 +171,27 @@ const handleSubmit = async (e) => {
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
+                placeholder="Tell me about your project..."
                 required
               />
 
               <button
                 type="submit"
-                className="w-full bg-green-400 sm:bg-green-500
-                hover:bg-green-600 text-black font-semibold
-                p-3 rounded-lg flex items-center justify-center gap-2
-                transition focus:outline-none focus:ring-2
-                focus:ring-green-400/50"
+                className="w-full group flex items-center justify-center gap-2 bg-green-500 hover:bg-green-400 text-black font-semibold py-3 rounded-xl transition-all duration-200 shadow-lg shadow-green-500/20 hover:shadow-green-400/30 hover:-translate-y-px focus:outline-none focus:ring-2 focus:ring-green-400/50"
               >
                 <Send className="w-4 h-4" />
                 Send Message
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
 
               {status && (
                 <p
                   role="status"
                   aria-live="polite"
-                  className="text-center text-green-400"
+                  className={`text-center text-sm font-medium ${status === "Message Sent!" ? "text-green-400" : "text-gray-400"
+                    }`}
                 >
-                  {status}
+                  {status === "Message Sent!" ? "✓ " : ""}{status}
                 </p>
               )}
             </form>
@@ -205,13 +208,13 @@ const handleSubmit = async (e) => {
 
 function ContactItem({ icon: Icon, label, value }) {
   return (
-    <div className="flex items-center gap-4 glass-card p-4">
-      <div className="p-3 rounded-xl bg-green-500/10 text-green-400">
-        <Icon className="w-6 h-6" aria-hidden />
+    <div className="flex items-center gap-4 p-4 rounded-2xl bg-[#0a0d18]/80 border border-white/[0.06] hover:border-white/[0.1] transition-colors">
+      <div className="p-2.5 rounded-xl bg-green-500/8 text-green-400 border border-green-500/15 flex-shrink-0">
+        <Icon className="w-4 h-4" aria-hidden />
       </div>
-      <div>
-        <p className="text-sm text-gray-400">{label}</p>
-        <p className="font-medium">{value}</p>
+      <div className="min-w-0">
+        <p className="text-xs text-gray-600 mb-0.5">{label}</p>
+        <p className="text-sm font-medium text-gray-200 truncate">{value}</p>
       </div>
     </div>
   );
@@ -224,47 +227,42 @@ function SocialLink({ href, icon: Icon, label }) {
       target="_blank"
       rel="noopener noreferrer"
       aria-label={label}
-      className="p-3 glass-card hover:text-green-400 transition"
+      className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.06] hover:border-white/[0.12] text-gray-400 hover:text-white text-sm transition-all duration-200"
     >
-      <Icon className="w-6 h-6" />
+      <Icon className="w-4 h-4" />
+      {label}
     </a>
   );
 }
 
-function FormInput({ label, id, ...props }) {
+function FormInput({ label, id, placeholder, ...props }) {
   return (
     <div>
-      <label htmlFor={id} className="text-sm text-gray-300">
+      <label htmlFor={id} className="block text-xs font-medium text-gray-500 mb-1.5 uppercase tracking-wider">
         {label}
       </label>
       <input
         id={id}
+        placeholder={placeholder}
         {...props}
-        className="w-full mt-1 p-2 rounded-lg
-        bg-[#0f1320] sm:bg-[#0b0d14]
-        border border-green-500/30
-        focus:border-green-400 focus:ring-1
-        focus:ring-green-400/40 outline-none"
+        className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/[0.07] text-white placeholder-gray-700 text-sm focus:border-green-500/40 focus:ring-1 focus:ring-green-500/20 outline-none transition-all duration-200"
       />
     </div>
   );
 }
 
-function FormTextarea({ label, id, ...props }) {
+function FormTextarea({ label, id, placeholder, ...props }) {
   return (
     <div>
-      <label htmlFor={id} className="text-sm text-gray-300">
+      <label htmlFor={id} className="block text-xs font-medium text-gray-500 mb-1.5 uppercase tracking-wider">
         {label}
       </label>
       <textarea
         id={id}
         rows={5}
+        placeholder={placeholder}
         {...props}
-        className="w-full mt-1 p-3 rounded-lg
-        bg-[#0f1320] sm:bg-[#0b0d14]
-        border border-green-500/30
-        focus:border-green-400 focus:ring-1
-        focus:ring-green-400/40 outline-none resize-none"
+        className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/[0.07] text-white placeholder-gray-700 text-sm focus:border-green-500/40 focus:ring-1 focus:ring-green-500/20 outline-none resize-none transition-all duration-200"
       />
     </div>
   );
