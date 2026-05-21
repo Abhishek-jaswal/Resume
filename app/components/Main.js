@@ -130,7 +130,7 @@ function Main() {
             className="flex gap-3 flex-wrap mb-8"
           >
             <a
-              href="https://drive.google.com/file/d/1eIlJgH3cYm5U68whTqA8k6KWqnGfJ6xs/view?usp=sharing"
+              href="https://drive.google.com/file/d/1KWz2Vs8Ry5a-4boYO3zGipUN_jYrK8B_/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="View Abhishek Jaswal's resume"

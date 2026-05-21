@@ -7,10 +7,21 @@ import Image from "next/image";
 
 const experiences = [
   {
-    title: "Software Intern",
+    title: "Freelance Full-Stack Developer",
+    company: "Self-Employed",
+    companyUrl: "https://urbanserveu.com",
+    period: "Dec 2025 – Present",
+    periodSchema: "2025-03",
+    description:
+      "Architecting and deploying production-ready web applications and Minimum Viable Products (MVPs) for startups and local businesses.Designing scalable relational database schemas and configuring backend architectures using PocketBase and PostgreSQL.Provisioning and managing cloud infrastructure on AWS EC2 and Vercel to support live user traffic and continuous deployment pipelines.",
+    skills: ["Next.js", "Tailwind CSS", "UI/UX", "PWA", "  Pocketbase", "TypeScript"],
+    current: true,
+  },
+  {
+    title: "Software Developer Intern",
     company: "Mountainkid.ai",
     companyUrl: "https://mountainkid.ai",
-    period: "March 2025 – Present",
+    period: "March 2025 – Nov 2025",
     periodSchema: "2025-03",
     description:
       "Contributing to MountainKid AI software and MountainKid Valley open-source projects. Improved UI/UX and implemented responsive interfaces using Next.js and Tailwind CSS. Collaborating with the core team on product features and performance improvements.",

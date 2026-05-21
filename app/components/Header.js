@@ -5,20 +5,20 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Github, Download, Linkedin, Search } from "lucide-react";
 
 const navItems = [
-  { name: "About",      href: "#about",      keywords: ["about", "bio", "profile", "who"] },
-  { name: "Skills",     href: "#skills",      keywords: ["skills", "tech", "stack", "react", "next", "node", "tailwind", "javascript", "typescript", "python"] },
-  { name: "Projects",   href: "#projects",    keywords: ["projects", "work", "portfolio", "fund", "chat", "interview", "himalaya"] },
-  { name: "Experience", href: "#experience",  keywords: ["experience", "job", "career", "work", "intern", "trainer", "mountainkid"] },
-  { name: "Education",  href: "#education",   keywords: ["education", "degree", "study", "niit", "college", "university"] },
-  { name: "Contact",    href: "#contact",     keywords: ["contact", "email", "hire", "reach", "message", "phone", "remote", "job", "opportunity", "freelance", "fullstack", "frontend"] },
+  { name: "About", href: "#about", keywords: ["about", "bio", "profile", "who"] },
+  { name: "Skills", href: "#skills", keywords: ["skills", "tech", "stack", "react", "next", "node", "tailwind", "javascript", "typescript", "python"] },
+  { name: "Projects", href: "#projects", keywords: ["projects", "work", "portfolio", "fund", "chat", "interview", "himalaya"] },
+  { name: "Experience", href: "#experience", keywords: ["experience", "job", "career", "work", "intern", "trainer", "mountainkid"] },
+  { name: "Education", href: "#education", keywords: ["education", "degree", "study", "niit", "college", "university"] },
+  { name: "Contact", href: "#contact", keywords: ["contact", "email", "hire", "reach", "message", "phone", "remote", "job", "opportunity", "freelance", "fullstack", "frontend"] },
 ];
 
 function Header() {
-  const [isScrolled, setIsScrolled]     = useState(false);
-  const [isOpen, setIsOpen]             = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("about");
-  const [searchOpen, setSearchOpen]     = useState(false);
-  const [searchQuery, setSearchQuery]   = useState("");
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const searchRef = useRef(null);
 
@@ -98,8 +98,8 @@ function Header() {
     return () => document.removeEventListener("keydown", handler);
   }, []);
 
-  const toggleMenu  = useCallback(() => setIsOpen((p) => !p), []);
-  const closeMenu   = useCallback(() => setIsOpen(false), []);
+  const toggleMenu = useCallback(() => setIsOpen((p) => !p), []);
+  const closeMenu = useCallback(() => setIsOpen(false), []);
 
   return (
     <>
@@ -108,11 +108,10 @@ function Header() {
         initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          isScrolled
-            ? "py-3 bg-[#070a12]/85 backdrop-blur-xl border-b border-white/[0.05] shadow-2xl shadow-black/20"
-            : "py-5"
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
+          ? "py-3 bg-[#070a12]/85 backdrop-blur-xl border-b border-white/[0.05] shadow-2xl shadow-black/20"
+          : "py-5"
+          }`}
       >
         <div className="max-w-6xl mx-auto px-6 flex items-center justify-between gap-4">
 
@@ -139,16 +138,14 @@ function Header() {
                 <a
                   key={item.name}
                   href={item.href}
-                  className={`relative px-3.5 py-2 text-sm font-medium transition-colors duration-200 rounded-lg group ${
-                    isActive ? "text-white" : "text-gray-400 hover:text-white hover:bg-white/5"
-                  }`}
+                  className={`relative px-3.5 py-2 text-sm font-medium transition-colors duration-200 rounded-lg group ${isActive ? "text-white" : "text-gray-400 hover:text-white hover:bg-white/5"
+                    }`}
                   aria-current={isActive ? "page" : undefined}
                 >
                   {item.name}
                   <span
-                    className={`absolute bottom-1 left-1/2 -translate-x-1/2 h-px bg-green-400 rounded-full transition-all duration-300 ${
-                      isActive ? "w-1/2" : "w-0 group-hover:w-1/2"
-                    }`}
+                    className={`absolute bottom-1 left-1/2 -translate-x-1/2 h-px bg-green-400 rounded-full transition-all duration-300 ${isActive ? "w-1/2" : "w-0 group-hover:w-1/2"
+                      }`}
                   />
                 </a>
               );
@@ -243,7 +240,7 @@ function Header() {
               <Github className="w-4 h-4" />
             </a>
             <a
-              href="https://drive.google.com/file/d/1eIlJgH3cYm5U68whTqA8k6KWqnGfJ6xs/view?usp=sharing"
+              href="https://drive.google.com/file/d/1KWz2Vs8Ry5a-4boYO3zGipUN_jYrK8B_/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-4 py-2 bg-green-500 hover:bg-green-400 text-black rounded-xl text-sm font-semibold shadow-lg shadow-green-500/25 transition-all duration-200 hover:shadow-green-400/40 hover:-translate-y-px"
@@ -298,11 +295,10 @@ function Header() {
                     key={item.name}
                     href={item.href}
                     onClick={closeMenu}
-                    className={`px-4 py-3 rounded-xl text-sm font-medium transition-all flex items-center gap-2.5 ${
-                      isActive
-                        ? "text-white bg-white/[0.06]"
-                        : "text-gray-400 hover:text-white hover:bg-white/5"
-                    }`}
+                    className={`px-4 py-3 rounded-xl text-sm font-medium transition-all flex items-center gap-2.5 ${isActive
+                      ? "text-white bg-white/[0.06]"
+                      : "text-gray-400 hover:text-white hover:bg-white/5"
+                      }`}
                   >
                     <span className={`w-1.5 h-1.5 rounded-full ${isActive ? "bg-green-400" : "bg-white/20"}`} />
                     {item.name}
